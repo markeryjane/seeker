@@ -16,7 +16,8 @@ var selection_index = 0
 var horizontal_selection_index = 1
 
 var max_hand_size = 7
-
+var max_turns = 5
+var turns_left = max_turns
 
 func setup_deck():
 	for i in 12:
@@ -28,8 +29,8 @@ func setup_deck():
 			var _type = randi_range(0,2)
 			if _is_none_type != 0:
 				_type = 0
-			if _type == 1: #add turn
-				_type = 2 #change it to add points
+			#if _type == 1: #add turn
+				#_type = 2 #change it to add points
 			
 			card_instance.card_effect = _type
 			card_instance.effect_amount = 0
@@ -49,22 +50,26 @@ func setup_deck():
 				card_instance.effect_amount = amount
 			deck.append(card_instance)
 			
-	#deck = base_deck.duplicate()
 	deck.shuffle()
 
-#func repopulate_deck():
-	#deck = base_deck.duplicate()
-	#deck.shuffle()
-
 func populate_hand():
-	#if deck.is_empty():
-		#repopulate_deck()
 	#adds cards until you have as many as max hand size
 	if hand.size() < max_hand_size:
 		for i in max_hand_size - hand.size():
+			if deck.is_empty():
+				setup_deck()
+			
 			var _card = deck.pop_front()
 			hand.append(_card)
 			hand_node.add_child(_card)
+
+func spend_turn():
+	turns_left -= 1
+	if turns_left == 0:
+		game_over()
+
+func game_over():
+	print("GAME OVER!")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -164,6 +169,7 @@ func play_hand():
 	
 	populate_hand()
 	reposition_cards_in_hand()
+	spend_turn()
 
 func discard():
 	for i in 200: #idk why but this works
@@ -173,12 +179,10 @@ func discard():
 				hand.pop_at(hand.find(card))
 				hand_node.remove_child(card)
 				reposition_cards_in_hand()
-	#
-	#if deck.is_empty():
-		#repopulate_deck()
 	populate_hand()
 	
 	reposition_cards_in_hand()
+	spend_turn()
 
 func pop_up_selected_card():
 	var _index = 0
