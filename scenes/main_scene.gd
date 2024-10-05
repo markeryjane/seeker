@@ -10,6 +10,8 @@ var hand = []
 @onready var play_area_node: Node2D = %PlayArea
 @onready var discard_label: Label = %DiscardLabel
 @onready var play_label: Label = %PlayLabel
+@onready var points_label: Label = %PointsLabel
+@onready var multiplier_label: Label = %MultiplierLabel
 
 var selection_index = 0
 
@@ -22,6 +24,8 @@ var turns_left = max_turns
 var scoring_numbers = []
 
 var score:int = 0
+var score_display_value:int = 0
+var combo_display_value:int = 0
 
 var game_is_over = false
 
@@ -149,7 +153,14 @@ func _process(delta: float) -> void:
 	if deck.size() == 0:
 		setup_deck()
 	
+	
+	update_combo_display()
+	
 	#reposition_cards_in_hand()
+
+func update_combo_display():
+	var tween = get_tree().create_tween()
+	#tween.tween_property(self, "points_label")
 
 func select_card():
 	hand[selection_index].selected = !hand[selection_index].selected
@@ -220,9 +231,18 @@ func calculate_score():
 	for card in hand:
 		if card.card_effect == 2: #add points
 			_points_to_add += card.effect_amount
+			
+	score_display_value = _points_to_add
+	points_label.text = str(score_display_value)
+	
 	_points_to_add *= scoring_numbers.size()
 	
 	score += _points_to_add
+	
+	
+	combo_display_value = scoring_numbers.size()
+	multiplier_label.text = str(combo_display_value)
+	
 	#printt("POINTS",_points_to_add)
 	#print(scoring_numbers)
 
