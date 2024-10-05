@@ -178,6 +178,7 @@ func play_hand():
 			scoring_numbers.append(card.month)
 			
 	if !is_valid_hand():
+		scoring_numbers.clear()
 		return
 	
 	calculate_score()
