@@ -24,21 +24,24 @@ func setup_deck():
 			var card_instance = CARD_BASE.instantiate()
 			card_instance.month = i+1
 			
-			var _is_none_type = randi_range(0,4)
+			var _is_none_type = randi_range(0,7)
 			var _type = randi_range(0,2)
-			if _is_none_type == 0:
+			if _is_none_type != 0:
 				_type = 0
+			if _type == 1: #add turn
+				_type = 2 #change it to add points
 			
 			card_instance.card_effect = _type
 			card_instance.effect_amount = 0
 			
 			if _type != 0:
-				var _positive = randi_range(0,3)
+				#var _positive = randi_range(0,3)
 				var amount = 0
-				if _positive == 0:
-					amount = randi_range(-1,-2)
-				else:
-					amount = randi_range(1,2)
+				amount = randi_range(1,3)
+				#if _positive == 0:
+					#amount = randi_range(-1,-2)
+				#else:
+					#amount = randi_range(1,2)
 				
 				if _type == 2: #points
 					amount *= 25
@@ -52,6 +55,7 @@ func setup_deck():
 func repopulate_deck():
 	deck = base_deck.duplicate()
 	deck.shuffle()
+	printt("WE REPOPED DECK: ", deck)
 
 func populate_hand():
 	if deck.is_empty():
@@ -129,6 +133,9 @@ func _process(delta: float) -> void:
 		selection_index = 0
 	if selection_index > hand.size()-1:
 		selection_index = hand.size()-1
+		
+	if deck.size() == 0:
+		repopulate_deck()
 	
 	#reposition_cards_in_hand()
 
@@ -152,8 +159,8 @@ func play_hand():
 				hand_node.remove_child(card)
 				reposition_cards_in_hand()
 	
-	
-	if deck.is_empty():
+	printt("PLAYING A HAND: ", deck)
+	if deck.size() == 0:
 		repopulate_deck()
 	
 	populate_hand()
