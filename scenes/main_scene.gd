@@ -173,7 +173,8 @@ func play_hand():
 			
 	if !is_valid_hand():
 		return
-	print(scoring_numbers)
+	
+	calculate_score()
 	
 	for i in 200: #idk why but this works
 		for card in hand:
@@ -204,6 +205,17 @@ func discard():
 	
 	reposition_cards_in_hand()
 	spend_turn()
+
+func calculate_score():
+	var _points_to_add = 0
+	for i in scoring_numbers:
+		_points_to_add += 1
+	for card in hand:
+		if card.card_effect == 2: #add points
+			_points_to_add += card.effect_amount
+	_points_to_add *= scoring_numbers.size()
+	#printt("POINTS",_points_to_add)
+	#print(scoring_numbers)
 
 func pop_up_selected_card():
 	var _index = 0
