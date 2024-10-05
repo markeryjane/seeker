@@ -21,6 +21,10 @@ var turns_left = max_turns
 
 var scoring_numbers = []
 
+var score:int = 0
+
+var game_is_over = false
+
 func setup_deck():
 	for i in 12:
 		for j in 4:
@@ -71,7 +75,7 @@ func spend_turn():
 		game_over()
 
 func game_over():
-	print("GAME OVER!")
+	game_is_over = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -85,6 +89,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if game_is_over: return
+	
 	if horizontal_selection_index == 1:
 		pop_up_selected_card()
 		
@@ -214,6 +220,8 @@ func calculate_score():
 		if card.card_effect == 2: #add points
 			_points_to_add += card.effect_amount
 	_points_to_add *= scoring_numbers.size()
+	
+	score += _points_to_add
 	#printt("POINTS",_points_to_add)
 	#print(scoring_numbers)
 
