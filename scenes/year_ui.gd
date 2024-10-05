@@ -5,6 +5,10 @@ var months_played = [false, false, false, false, false, false, false, false, fal
 
 var month_colors = ["#0091de", "#ff8ec0", "#ff7a69", "#61f2ce", "#f5d67d", "#ff0a37", "#3284ff", "#a88246", "#7d4f4e", "#d06900", "#b63900", "#2a4fff"]
 
+#var spring_bonus_active = false
+#var summer_bonus_active = false
+#var autumn
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
