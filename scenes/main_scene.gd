@@ -229,6 +229,13 @@ func play_hand():
 	scoring_numbers.clear()
 
 func discard():
+	var _num_selected = 0
+	for card in hand:
+		if card.selected:
+			_num_selected += 1
+	if _num_selected == 0:
+		return
+	
 	for i in 200: #idk why but this works
 		for card in hand:
 			if card.selected:
