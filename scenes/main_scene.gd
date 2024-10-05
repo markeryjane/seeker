@@ -1,5 +1,5 @@
 extends Node2D
-
+const GAME_OVER_SCREEN = preload("res://scenes/game_over_screen.tscn")
 const CARD_BASE = preload("res://card_base.tscn")
 var base_deck = []
 
@@ -12,6 +12,7 @@ var hand = []
 @onready var play_label: Label = %PlayLabel
 @onready var points_label: Label = %PointsLabel
 @onready var multiplier_label: Label = %MultiplierLabel
+@onready var combo_display_animation_player: AnimationPlayer = %ComboDisplayAnimationPlayer
 
 var selection_index = 0
 
@@ -80,6 +81,8 @@ func spend_turn():
 
 func game_over():
 	game_is_over = true
+	var inst = GAME_OVER_SCREEN.instantiate()
+	add_child(inst)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -152,15 +155,10 @@ func _process(delta: float) -> void:
 		
 	if deck.size() == 0:
 		setup_deck()
-	
-	
-	update_combo_display()
+
 	
 	#reposition_cards_in_hand()
 
-func update_combo_display():
-	var tween = get_tree().create_tween()
-	#tween.tween_property(self, "points_label")
 
 func select_card():
 	hand[selection_index].selected = !hand[selection_index].selected
@@ -242,6 +240,8 @@ func calculate_score():
 	
 	combo_display_value = scoring_numbers.size()
 	multiplier_label.text = str(combo_display_value)
+	
+	combo_display_animation_player.play("animate_combo_display")
 	
 	#printt("POINTS",_points_to_add)
 	#print(scoring_numbers)
