@@ -47,19 +47,18 @@ func setup_deck():
 					amount *= 25
 				
 				card_instance.effect_amount = amount
-			base_deck.append(card_instance)
+			deck.append(card_instance)
 			
-	deck = base_deck.duplicate()
+	#deck = base_deck.duplicate()
 	deck.shuffle()
 
-func repopulate_deck():
-	deck = base_deck.duplicate()
-	deck.shuffle()
-	printt("WE REPOPED DECK: ", deck)
+#func repopulate_deck():
+	#deck = base_deck.duplicate()
+	#deck.shuffle()
 
 func populate_hand():
-	if deck.is_empty():
-		repopulate_deck()
+	#if deck.is_empty():
+		#repopulate_deck()
 	#adds cards until you have as many as max hand size
 	if hand.size() < max_hand_size:
 		for i in max_hand_size - hand.size():
@@ -135,7 +134,7 @@ func _process(delta: float) -> void:
 		selection_index = hand.size()-1
 		
 	if deck.size() == 0:
-		repopulate_deck()
+		setup_deck()
 	
 	#reposition_cards_in_hand()
 
@@ -159,9 +158,9 @@ func play_hand():
 				hand_node.remove_child(card)
 				reposition_cards_in_hand()
 	
-	printt("PLAYING A HAND: ", deck)
-	if deck.size() == 0:
-		repopulate_deck()
+	#printt("PLAYING A HAND: ", deck)
+	#if deck.size() == 0:
+		#repopulate_deck()
 	
 	populate_hand()
 	reposition_cards_in_hand()
@@ -174,9 +173,9 @@ func discard():
 				hand.pop_at(hand.find(card))
 				hand_node.remove_child(card)
 				reposition_cards_in_hand()
-	
-	if deck.is_empty():
-		repopulate_deck()
+	#
+	#if deck.is_empty():
+		#repopulate_deck()
 	populate_hand()
 	
 	reposition_cards_in_hand()
