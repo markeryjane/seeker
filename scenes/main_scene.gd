@@ -19,6 +19,8 @@ var max_hand_size = 7
 var max_turns = 5
 var turns_left = max_turns
 
+var scoring_numbers = []
+
 func setup_deck():
 	for i in 12:
 		for j in 4:
@@ -146,14 +148,32 @@ func _process(delta: float) -> void:
 func select_card():
 	hand[selection_index].selected = !hand[selection_index].selected
 
+func is_valid_hand() -> bool:
+	var _selected_count = 0
+	for card in hand:
+		if card.selected:
+			_selected_count += 1
+	if _selected_count >= 3:
+		var _index = scoring_numbers.size()-1
+		for i in scoring_numbers.size():
+			printt('ind',_index)
+			if _index > 0:
+				if scoring_numbers[_index]-1 != scoring_numbers[_index-1] and scoring_numbers[_index] != scoring_numbers[_index-1]:
+					return false
+			_index -= 1
+		print("RETURN TRUE")
+		return true
+	return false
+
 func play_hand():
 	#calculate score here
-	var scoring_numbers = []
 	for card in hand:
 		if card.selected:
 			scoring_numbers.append(card.month)
+			
+	if !is_valid_hand():
+		return
 	print(scoring_numbers)
-	#if scoring_numbers.size()*(scoring_numbers.size()+1)/2
 	
 	for i in 200: #idk why but this works
 		for card in hand:
@@ -170,6 +190,7 @@ func play_hand():
 	populate_hand()
 	reposition_cards_in_hand()
 	spend_turn()
+	scoring_numbers.clear()
 
 func discard():
 	for i in 200: #idk why but this works
