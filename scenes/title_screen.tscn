@@ -16,7 +16,7 @@ color = Color(0.319642, 0.316852, 0.231474, 1)
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
 offset_left = -6.0
-offset_top = 4.0
+offset_top = 131.0
 offset_right = 1994.0
 offset_bottom = 1200.0
 
@@ -27,7 +27,7 @@ theme_override_constants/separation = 300
 [node name="PressEnterText2" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 200
-text = "GAME TITLE"
+text = "tempori."
 horizontal_alignment = 1
 
 [node name="PressEnterText" type="Label" parent="CenterContainer/VBoxContainer"]
