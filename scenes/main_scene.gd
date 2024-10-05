@@ -89,6 +89,11 @@ func game_over():
 	await get_tree().create_timer(1.5).timeout
 	var inst = GAME_OVER_SCREEN.instantiate()
 	inst.final_score = score
+	inst.gameover_winter_bonus_active = year_ui.winter_bonus_active
+	inst.gameover_spring_bonus_active = year_ui.spring_bonus_active
+	inst.gameover_autumn_bonus_active = year_ui.autumn_bonus_active
+	inst.gameover_summer_bonus_active = year_ui.summer_bonus_active
+
 	add_child(inst)
 
 # Called when the node enters the scene tree for the first time.
@@ -245,7 +250,7 @@ func calculate_score():
 			if card.card_effect == 2: #add points
 				_points_to_add += card.effect_amount
 			elif card.card_effect == 1: #add turns
-				turns_left += card.effect_amount
+				turns_left += card.effect_amount + 1 #give an extra cos we're using a turn
 			year_ui.activate_month(card.month)
 			
 	score_display_value = _points_to_add
