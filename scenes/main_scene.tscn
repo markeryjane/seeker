@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://hwsl16lji7g8"]
+[gd_scene load_steps=6 format=3 uid="uid://hwsl16lji7g8"]
 
 [ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_m7ixl"]
+[ext_resource type="PackedScene" uid="uid://c0777y0wu7oa" path="res://scenes/year_ui.tscn" id="2_xjgos"]
 
 [sub_resource type="Animation" id="Animation_257vy"]
 resource_name = "animate_combo_display"
@@ -82,8 +83,9 @@ horizontal_alignment = 1
 
 [node name="ComboDisplay" type="CenterContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
+offset_top = 160.0
 offset_right = 1996.0
-offset_bottom = 552.0
+offset_bottom = 712.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ComboDisplay"]
 layout_mode = 2
@@ -123,8 +125,9 @@ libraries = {
 }
 
 [node name="ScoreCenterContainer" type="CenterContainer" parent="."]
+offset_top = 160.0
 offset_right = 1995.0
-offset_bottom = 208.0
+offset_bottom = 368.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScoreCenterContainer"]
 layout_mode = 2
@@ -139,3 +142,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 140
 text = "0"
+
+[node name="YearUI" parent="." instance=ExtResource("2_xjgos")]
+offset_top = -36.0
+offset_bottom = -36.0

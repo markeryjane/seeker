@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0777y0wu7oa"]
+
+[ext_resource type="Script" path="res://scenes/year_ui.gd" id="1_7ikj1"]
+
+[node name="YearUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_7ikj1")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 1994.0
+offset_bottom = 308.0
+
+[node name="MonthContainer" type="HBoxContainer" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="MonthLabel1" type="Label" parent="CenterContainer/MonthContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "JAN"
+
+[node name="MonthLabel2" type="Label" parent="CenterContainer/MonthContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "FEB"
+
+[node name="MonthLabel3" type="Label" parent="CenterContainer/MonthContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "MAR"
+
+[node name="MonthLabel4" type="Label" parent="CenterContainer/MonthContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "APR"
+
+[node name="MonthLabel5" type="Label" parent="CenterContainer/MonthContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "MAY"
+
+[node name="MonthLabel6" type="Label" parent="CenterContainer/MonthContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "JUN"
+
+[node name="MonthLabel7" type="Label" parent="CenterContainer/MonthContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "JUL"
+
+[node name="MonthLabel8" type="Label" parent="CenterContainer/MonthContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "AUG"
+
+[node name="MonthLabel9" type="Label" parent="CenterContainer/MonthContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "SEP"
+
+[node name="MonthLabel10" type="Label" parent="CenterContainer/MonthContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "OCT"
+
+[node name="MonthLabel11" type="Label" parent="CenterContainer/MonthContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "NOV"
+
+[node name="MonthLabel12" type="Label" parent="CenterContainer/MonthContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "DEC"
