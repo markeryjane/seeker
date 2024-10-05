@@ -15,6 +15,8 @@ var hand = []
 @onready var combo_display_animation_player: AnimationPlayer = %ComboDisplayAnimationPlayer
 @onready var score_value_label: Label = %ScoreValueLabel
 @onready var year_ui: Control = %YearUI
+@onready var turns_left_container: CenterContainer = %TurnsLeftContainer
+@onready var turns_left_value_label: Label = %TurnsLeftValueLabel
 
 var selection_index = 0
 
@@ -103,6 +105,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if score_value_label.text != str(score):
 		score_value_label.text = str(score)
+	if turns_left_value_label.text != str(turns_left):
+		turns_left_value_label.text = str(turns_left)
+	
+	if turns_left <= 1:
+		turns_left_container.modulate = Color.RED
+	else:
+		turns_left_container.modulate = Color.WHITE
 		
 	if game_is_over: return
 	
@@ -232,10 +241,11 @@ func calculate_score():
 	for i in scoring_numbers:
 		_points_to_add += 1
 	for card in hand:
-		if card.card_effect == 2 and card.selected: #add points
-			_points_to_add += card.effect_amount
-		
 		if card.selected:
+			if card.card_effect == 2: #add points
+				_points_to_add += card.effect_amount
+			elif card.card_effect == 1: #add turns
+				turns_left += card.effect_amount
 			year_ui.activate_month(card.month)
 			
 	score_display_value = _points_to_add

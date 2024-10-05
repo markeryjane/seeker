@@ -27,13 +27,13 @@ theme_override_constants/separation = 300
 [node name="PressEnterText2" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 200
-text = "tempori."
+text = "Tempori."
 horizontal_alignment = 1
 
 [node name="PressEnterText" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 130
-text = "press enter to start"
+text = "Press Space to start"
 horizontal_alignment = 1
 
 [node name="ByMarkeryjaneText" type="Label" parent="CenterContainer/VBoxContainer"]

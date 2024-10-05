@@ -116,20 +116,20 @@ color = Color(0.165137, 0.311109, 1, 1)
 polygon = PackedVector2Array(255, 0, 0, 0, 0, 255, 255, 255)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = -103.0
+offset_left = -100.0
 offset_top = -83.0
-offset_right = 109.0
-offset_bottom = 87.0
-theme_override_constants/separation = 80
+offset_right = 120.0
+offset_bottom = 192.0
+theme_override_constants/separation = 30
 
-[node name="MonthText" type="HBoxContainer" parent="VBoxContainer"]
+[node name="MonthText" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
 [node name="MonthLabelNumber" type="Label" parent="VBoxContainer/MonthText"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_8n5eh")
-theme_override_font_sizes/font_size = 43
+theme_override_font_sizes/font_size = 70
 text = "(2)
 "
 
@@ -137,9 +137,8 @@ text = "(2)
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_8n5eh")
-theme_override_font_sizes/font_size = 43
-text = " February
-"
+theme_override_font_sizes/font_size = 60
+text = "February"
 
 [node name="EffectText" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -149,7 +148,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.627451)
 theme_override_fonts/font = ExtResource("2_8n5eh")
-theme_override_font_sizes/font_size = 62
+theme_override_font_sizes/font_size = 59
 text = "+2"
 
 [node name="EffectLabelType" type="Label" parent="VBoxContainer/EffectText"]
@@ -157,7 +156,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.627451)
 theme_override_fonts/font = ExtResource("2_8n5eh")
-theme_override_font_sizes/font_size = 62
+theme_override_font_sizes/font_size = 59
 text = "turns"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -169,6 +168,6 @@ libraries = {
 unique_name_in_owner = true
 
 [node name="SelectedIconPolygon" type="Polygon2D" parent="SelectedIcon"]
-position = Vector2(7, -17)
+position = Vector2(7, -26)
 color = Color(0.159892, 0.688903, 0.308131, 1)
 polygon = PackedVector2Array(-29, -115, 13, -77, 63, -145, 44, -150, 11, -107, -16, -129)
