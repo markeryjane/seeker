@@ -1,9 +1,11 @@
 extends Node2D
 
+var final_score:int = 0
+@onready var score_text: Label = %ScoreText
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	score_text.text = str(final_score)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

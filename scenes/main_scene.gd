@@ -13,6 +13,7 @@ var hand = []
 @onready var points_label: Label = %PointsLabel
 @onready var multiplier_label: Label = %MultiplierLabel
 @onready var combo_display_animation_player: AnimationPlayer = %ComboDisplayAnimationPlayer
+@onready var score_value_label: Label = %ScoreValueLabel
 
 var selection_index = 0
 
@@ -81,7 +82,10 @@ func spend_turn():
 
 func game_over():
 	game_is_over = true
+	
+	await get_tree().create_timer(1.5).timeout
 	var inst = GAME_OVER_SCREEN.instantiate()
+	inst.final_score = score
 	add_child(inst)
 
 # Called when the node enters the scene tree for the first time.
@@ -96,6 +100,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if score_value_label.text != str(score):
+		score_value_label.text = str(score)
+		
 	if game_is_over: return
 	
 	if horizontal_selection_index == 1:
@@ -155,9 +162,6 @@ func _process(delta: float) -> void:
 		
 	if deck.size() == 0:
 		setup_deck()
-
-	
-	#reposition_cards_in_hand()
 
 
 func select_card():
@@ -235,8 +239,9 @@ func calculate_score():
 	
 	_points_to_add *= scoring_numbers.size()
 	
-	score += _points_to_add
-	
+	#score += _points_to_add
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "score", score+_points_to_add, 0.9)
 	
 	combo_display_value = scoring_numbers.size()
 	multiplier_label.text = str(combo_display_value)
