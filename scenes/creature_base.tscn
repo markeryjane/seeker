@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://pubjaqqsqm6t"]
+
+[node name="CreatureBase" type="Node2D"]
+
+[node name="Creature" type="Node2D" parent="."]
+scale = Vector2(0.6, 0.6)
+
+[node name="Polygons" type="Polygon2D" parent="Creature"]
+position = Vector2(-29, -25)
+color = Color(0.785641, 0.785641, 0.785641, 1)
+polygon = PackedVector2Array(28, 11, 20, 9, 13, 10, 13, 16, 13, 24, 33, 34, 45, 27, 47, 22, 46, 17, 37, 15)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Creature/Polygons"]
+color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+polygon = PackedVector2Array(42, 20, 39, 19, 35, 19, 34, 25, 40, 25, 42, 24)
+
+[node name="Polygon2D" type="Polygon2D" parent="Creature/Polygons"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(24, 16, 20, 15, 16, 20, 21, 22, 25, 21)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Creature/Polygons"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(23, 25, 28, 30, 31, 30, 35, 28, 34, 27, 31, 29, 28, 29, 24, 25)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Creature/Polygons"]
+color = Color(0.505882, 1, 1, 1)
+polygon = PackedVector2Array(26, 31, 20, 45, 48, 45, 35, 32)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Creature/Polygons"]
+polygon = PackedVector2Array(26, 42, 26, 47, 20, 47, 20, 51, 29, 51, 29, 42)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Creature/Polygons"]
+polygon = PackedVector2Array(38, 43, 38, 51, 46, 51, 47, 47, 41, 47, 40, 43)

@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://qpno7md6w1oa"]
+
+[ext_resource type="PackedScene" uid="uid://pubjaqqsqm6t" path="res://scenes/creature_base.tscn" id="1_sd2ei"]
+
+[node name="MainRoom" type="Node2D"]
+
+[node name="CreatureBase" parent="." instance=ExtResource("1_sd2ei")]
+
+[node name="CreatureBase2" parent="." instance=ExtResource("1_sd2ei")]
+position = Vector2(87, 32)
+
+[node name="CreatureBase3" parent="." instance=ExtResource("1_sd2ei")]
+position = Vector2(178, 35)
+
+[node name="CreatureBase4" parent="." instance=ExtResource("1_sd2ei")]
+position = Vector2(256, 136)
+
+[node name="CreatureBase5" parent="." instance=ExtResource("1_sd2ei")]
+position = Vector2(361, 96)
+
+[node name="CreatureBase6" parent="." instance=ExtResource("1_sd2ei")]
+position = Vector2(407, 180)
+
+[node name="CreatureBase7" parent="." instance=ExtResource("1_sd2ei")]
+position = Vector2(530, 105)
+
+[node name="CreatureBase8" parent="." instance=ExtResource("1_sd2ei")]
+position = Vector2(551, 217)
+
+[node name="CreatureBase9" parent="." instance=ExtResource("1_sd2ei")]
+position = Vector2(292, 274)
+
+[node name="CreatureBase10" parent="." instance=ExtResource("1_sd2ei")]
+position = Vector2(151, 224)
+
+[node name="CreatureBase11" parent="." instance=ExtResource("1_sd2ei")]
+position = Vector2(70, 134)

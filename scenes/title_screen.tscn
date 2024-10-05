@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjkeqilxu2pxa"]
+
+[ext_resource type="Script" path="res://scenes/title_screen.gd" id="1_tboce"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tboce")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 2008.0
+offset_bottom = 1202.0
+color = Color(0.319642, 0.316852, 0.231474, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+offset_left = -6.0
+offset_top = 4.0
+offset_right = 1994.0
+offset_bottom = 1200.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 300
+
+[node name="PressEnterText2" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 200
+text = "GAME TITLE"
+horizontal_alignment = 1
+
+[node name="PressEnterText" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 130
+text = "press enter to start"
+horizontal_alignment = 1
+
+[node name="ByMarkeryjaneText" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "by markeryjane"
+horizontal_alignment = 1

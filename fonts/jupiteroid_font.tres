@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://xindnjsr4tie"]
+
+[ext_resource type="FontFile" uid="uid://ck5di3vfkuuxe" path="res://fonts/JupiteroidRegular-8Oeg0.ttf" id="1_gyqgr"]
+
+[resource]
+base_font = ExtResource("1_gyqgr")
