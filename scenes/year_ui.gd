@@ -20,4 +20,4 @@ func _process(delta: float) -> void:
 		_index += 1
 
 func activate_month(month:int) -> void:
-	months_played[month] = true
+	months_played[month-1] = true

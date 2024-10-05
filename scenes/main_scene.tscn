@@ -144,5 +144,6 @@ theme_override_font_sizes/font_size = 140
 text = "0"
 
 [node name="YearUI" parent="." instance=ExtResource("2_xjgos")]
+unique_name_in_owner = true
 offset_top = -36.0
 offset_bottom = -36.0

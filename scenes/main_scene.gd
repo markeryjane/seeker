@@ -14,6 +14,7 @@ var hand = []
 @onready var multiplier_label: Label = %MultiplierLabel
 @onready var combo_display_animation_player: AnimationPlayer = %ComboDisplayAnimationPlayer
 @onready var score_value_label: Label = %ScoreValueLabel
+@onready var year_ui: Control = %YearUI
 
 var selection_index = 0
 
@@ -231,8 +232,11 @@ func calculate_score():
 	for i in scoring_numbers:
 		_points_to_add += 1
 	for card in hand:
-		if card.card_effect == 2: #add points
+		if card.card_effect == 2 and card.selected: #add points
 			_points_to_add += card.effect_amount
+		
+		if card.selected:
+			year_ui.activate_month(card.month)
 			
 	score_display_value = _points_to_add
 	points_label.text = str(score_display_value)

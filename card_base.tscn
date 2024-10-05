@@ -169,6 +169,6 @@ libraries = {
 unique_name_in_owner = true
 
 [node name="SelectedIconPolygon" type="Polygon2D" parent="SelectedIcon"]
-position = Vector2(15, -14)
-color = Color(1, 0.25, 0.3875, 1)
-polygon = PackedVector2Array(3, -137, -19, -133, -29, -115, -8, -94, 32, -98, 37, -109, 27, -133, 16, -136, 21, -119, 11, -107, -3, -111, -9, -124)
+position = Vector2(7, -17)
+color = Color(0.159892, 0.688903, 0.308131, 1)
+polygon = PackedVector2Array(-29, -115, 13, -77, 63, -145, 44, -150, 11, -107, -16, -129)
