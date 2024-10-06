@@ -159,12 +159,18 @@ func _process(delta: float) -> void:
 		pop_up_selected_card()
 		
 		if Input.is_action_just_pressed("ui_left"):
-			selection_index = max(0, selection_index-1)
+			#selection_index = max(0, selection_index-1)
+			selection_index -= 1
+			if selection_index < 0:
+				selection_index = max_hand_size
 			pop_up_selected_card()
 			move_cursor_sfx.play()
 			
 		if Input.is_action_just_pressed("ui_right"):
-			selection_index = min(hand.size()-1, selection_index+1)
+			#selection_index = min(hand.size()-1, selection_index+1)
+			selection_index += 1
+			if selection_index > hand.size()-1:
+				selection_index = 0
 			pop_up_selected_card()
 			move_cursor_sfx.play()
 		
