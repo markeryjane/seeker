@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjkeqilxu2pxa"]
+[gd_scene load_steps=4 format=3 uid="uid://cjkeqilxu2pxa"]
 
 [ext_resource type="Script" path="res://scenes/title_screen.gd" id="1_tboce"]
 [ext_resource type="PackedScene" uid="uid://cwpxr3piibnx2" path="res://mandala.tscn" id="2_5b5co"]
+[ext_resource type="AudioStream" uid="uid://dgqukujy2f07y" path="res://sfx/title_bgm.ogg" id="3_hohqv"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -61,3 +62,9 @@ theme_override_colors/font_color = Color(0.405764, 0.213695, 0.300649, 1)
 theme_override_font_sizes/font_size = 80
 text = "by Mario Russeau"
 horizontal_alignment = 1
+
+[node name="TitleBGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hohqv")
+autoplay = true
+
+[node name="StartGameSound" type="AudioStreamPlayer" parent="."]
