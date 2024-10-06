@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://hwsl16lji7g8"]
+[gd_scene load_steps=18 format=3 uid="uid://hwsl16lji7g8"]
 
 [ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_m7ixl"]
 [ext_resource type="PackedScene" uid="uid://c0777y0wu7oa" path="res://scenes/year_ui.tscn" id="2_xjgos"]
@@ -9,6 +9,11 @@
 [ext_resource type="AudioStream" uid="uid://db3iatr6u232" path="res://sfx/pluck_sfx.wav" id="7_gep5o"]
 [ext_resource type="AudioStream" uid="uid://dx8t1qyji507p" path="res://sfx/squeak_sfx.wav" id="8_6y13g"]
 [ext_resource type="AudioStream" uid="uid://bdip6uleqr1sl" path="res://sfx/pop_sfx.wav" id="9_ns06p"]
+[ext_resource type="AudioStream" uid="uid://biql7u4dkht8s" path="res://sfx/pluck_three.wav" id="10_uen3e"]
+[ext_resource type="AudioStream" uid="uid://dpp6rfmjdxv2o" path="res://sfx/pluck_four.wav" id="11_vv7nw"]
+[ext_resource type="AudioStream" uid="uid://b2jk1ip6qa3t6" path="res://sfx/pluck_five.wav" id="12_1avos"]
+[ext_resource type="AudioStream" uid="uid://b2mubfvbv4qlt" path="res://sfx/pluck_six.wav" id="13_c5h42"]
+[ext_resource type="AudioStream" uid="uid://chslmfamy1ou6" path="res://sfx/pluck_seven.wav" id="14_kgdue"]
 
 [sub_resource type="Animation" id="Animation_8s8fh"]
 length = 0.001
@@ -204,7 +209,29 @@ stream = ExtResource("7_gep5o")
 [node name="DiscardSfx" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("8_6y13g")
+volume_db = -3.0
 
 [node name="ScoreTickSfx" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("9_ns06p")
+volume_db = -0.3
+
+[node name="PlayHand3" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_uen3e")
+
+[node name="PlayHand4" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_vv7nw")
+
+[node name="PlayHand5" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_1avos")
+
+[node name="PlayHand6" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_c5h42")
+
+[node name="PlayHand7" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("14_kgdue")

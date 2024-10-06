@@ -28,6 +28,13 @@ var hand = []
 @onready var discard_sfx: AudioStreamPlayer = %DiscardSfx
 @onready var score_tick_sfx: AudioStreamPlayer = %ScoreTickSfx
 
+@onready var play_hand_3: AudioStreamPlayer = %PlayHand3
+@onready var play_hand_4: AudioStreamPlayer = %PlayHand4
+@onready var play_hand_5: AudioStreamPlayer = %PlayHand5
+@onready var play_hand_6: AudioStreamPlayer = %PlayHand6
+@onready var play_hand_7: AudioStreamPlayer = %PlayHand7
+
+
 var selection_index = 0
 
 var horizontal_selection_index = 1
@@ -73,6 +80,9 @@ func setup_deck():
 				
 				if _type == 2: #points
 					amount *= 50
+				else: #turns
+					if card_instance.month == 12:
+						_type = 0
 				
 				card_instance.effect_amount = amount
 			deck.append(card_instance)
@@ -110,7 +120,7 @@ func game_over():
 	inst.gameover_spring_bonus_active = year_ui.spring_bonus_active
 	inst.gameover_autumn_bonus_active = year_ui.autumn_bonus_active
 	inst.gameover_summer_bonus_active = year_ui.summer_bonus_active
-
+	inst.gameover_year_bonus_active = year_ui.year_bonus_active
 	add_child(inst)
 
 # Called when the node enters the scene tree for the first time.
@@ -249,8 +259,19 @@ func play_hand():
 		scoring_numbers.clear()
 		input_is_disabled = false
 		return
-		
-	play_hand_sfx.play()
+	match scoring_numbers.size():
+		3:
+			play_hand_3.play()
+		4:
+			play_hand_4.play()
+		5:
+			play_hand_5.play()
+		6:
+			play_hand_6.play()
+		7:
+			play_hand_7.play()
+		_:
+			play_hand_sfx.play()
 	
 	await get_tree().create_timer(.3).timeout
 	
