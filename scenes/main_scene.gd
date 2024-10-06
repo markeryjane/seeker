@@ -206,7 +206,6 @@ func is_valid_hand() -> bool:
 	var december_skip_available = scoring_numbers.has(1) and scoring_numbers.has(12)
 	if december_skip_available:
 		december_skip_used = false
-		print("skip avail")
 	
 	var _selected_count = 0
 	for card in hand:
@@ -215,7 +214,7 @@ func is_valid_hand() -> bool:
 	if _selected_count >= 3:
 		var _index = scoring_numbers.size()-1
 		for i in scoring_numbers.size():
-			printt('ind',_index)
+			#printt('ind',_index)
 			if _index > 0:
 				if scoring_numbers[_index]-1 != scoring_numbers[_index-1] and scoring_numbers[_index] != scoring_numbers[_index-1]:
 					if december_skip_available and !december_skip_used:
@@ -225,7 +224,7 @@ func is_valid_hand() -> bool:
 					else:
 						return false
 			_index -= 1
-		print("RETURN TRUE")
+		#print("RETURN TRUE")
 		return true
 	return false
 
