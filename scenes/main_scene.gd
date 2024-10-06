@@ -27,6 +27,7 @@ var hand = []
 @onready var play_hand_sfx: AudioStreamPlayer = %PlayHandSfx
 @onready var discard_sfx: AudioStreamPlayer = %DiscardSfx
 @onready var score_tick_sfx: AudioStreamPlayer = %ScoreTickSfx
+@onready var pressed_play_or_discard_sfx: AudioStreamPlayer = %PressedPlayOrDiscardSfx
 
 @onready var play_hand_3: AudioStreamPlayer = %PlayHand3
 @onready var play_hand_4: AudioStreamPlayer = %PlayHand4
@@ -132,6 +133,9 @@ func _ready() -> void:
 	
 	play_label.modulate = Color.WHITE
 	discard_label.modulate = Color.DIM_GRAY
+	
+	#AudioManager.start_bgm()
+	#$BGM.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -259,6 +263,8 @@ func play_hand():
 		scoring_numbers.clear()
 		input_is_disabled = false
 		return
+		
+	pressed_play_or_discard_sfx.play()
 	match scoring_numbers.size():
 		3:
 			play_hand_3.play()
@@ -318,6 +324,7 @@ func discard():
 	reposition_cards_in_hand()
 	spend_turn()
 	
+	pressed_play_or_discard_sfx.play()
 	discard_sfx.play()
 
 func calculate_score():

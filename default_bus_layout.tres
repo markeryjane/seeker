@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://b8nb4jnxi22f7"]
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://b8nb4jnxi22f7"]
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_8tctr"]
 resource_name = "Reverb"
@@ -14,8 +14,15 @@ gain = 20.0
 release_ms = 800.0
 mix = 0.53
 
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_tkjpr"]
+resource_name = "LowPassFilter"
+cutoff_hz = 12000.0
+resonance = 0.15
+
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectReverb_8tctr")
 bus/0/effect/0/enabled = true
 bus/0/effect/1/effect = SubResource("AudioEffectCompressor_geicn")
 bus/0/effect/1/enabled = true
+bus/0/effect/2/effect = SubResource("AudioEffectLowPassFilter_tkjpr")
+bus/0/effect/2/enabled = true

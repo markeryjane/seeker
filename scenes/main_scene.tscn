@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://hwsl16lji7g8"]
+[gd_scene load_steps=20 format=3 uid="uid://hwsl16lji7g8"]
 
 [ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_m7ixl"]
 [ext_resource type="PackedScene" uid="uid://c0777y0wu7oa" path="res://scenes/year_ui.tscn" id="2_xjgos"]
@@ -14,6 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://b2jk1ip6qa3t6" path="res://sfx/pluck_five.wav" id="12_1avos"]
 [ext_resource type="AudioStream" uid="uid://b2mubfvbv4qlt" path="res://sfx/pluck_six.wav" id="13_c5h42"]
 [ext_resource type="AudioStream" uid="uid://chslmfamy1ou6" path="res://sfx/pluck_seven.wav" id="14_kgdue"]
+[ext_resource type="AudioStream" uid="uid://bt15jh6trd4xb" path="res://sfx/tempori_short_no_fx.ogg" id="15_ti2kx"]
+[ext_resource type="AudioStream" uid="uid://twe74y8d7jcw" path="res://sfx/low_dop_sfx.wav" id="16_g2bl0"]
 
 [sub_resource type="Animation" id="Animation_8s8fh"]
 length = 0.001
@@ -235,3 +237,14 @@ stream = ExtResource("13_c5h42")
 [node name="PlayHand7" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("14_kgdue")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_ti2kx")
+volume_db = 2.118
+pitch_scale = 0.9
+
+[node name="PressedPlayOrDiscardSfx" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("16_g2bl0")
+volume_db = 8.0
+pitch_scale = 0.22
