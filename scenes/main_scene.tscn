@@ -66,6 +66,7 @@ unique_name_in_owner = true
 position = Vector2(756, 178)
 
 [node name="PlayDiscardCenterContainer" type="CenterContainer" parent="."]
+unique_name_in_owner = true
 offset_top = 586.0
 offset_right = 2003.0
 offset_bottom = 1228.0

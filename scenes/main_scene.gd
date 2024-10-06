@@ -18,6 +18,7 @@ var hand = []
 @onready var year_ui: Control = %YearUI
 @onready var turns_left_container: CenterContainer = %TurnsLeftContainer
 @onready var turns_left_value_label: Label = %TurnsLeftValueLabel
+@onready var play_discard_center_container: CenterContainer = %PlayDiscardCenterContainer
 
 @onready var move_cursor_sfx: AudioStreamPlayer = %MoveCursorSfx
 @onready var select_card_sfx: AudioStreamPlayer = %SelectCardSfx
@@ -64,14 +65,14 @@ func setup_deck():
 			if _type != 0:
 				#var _positive = randi_range(0,3)
 				var amount = 0
-				amount = randi_range(1,3)
+				amount = randi_range(1,2)
 				#if _positive == 0:
 					#amount = randi_range(-1,-2)
 				#else:
 					#amount = randi_range(1,2)
 				
 				if _type == 2: #points
-					amount *= 25
+					amount *= 50
 				
 				card_instance.effect_amount = amount
 			deck.append(card_instance)
@@ -98,6 +99,7 @@ func game_over():
 	if game_is_over: return
 	
 	remove_child(hand_node)
+	remove_child(play_discard_center_container)
 	
 	game_is_over = true
 	
@@ -306,7 +308,7 @@ func calculate_score():
 			if card.card_effect == 2: #add points
 				_points_to_add += card.effect_amount
 			elif card.card_effect == 1: #add turns
-				turns_left += card.effect_amount + 1 #give an extra cos we're using a turn
+				turns_left += card.effect_amount
 				
 				var _inst = EXTRA_TURN_INDICATOR.instantiate()
 				_inst.position = Vector2(990,655)

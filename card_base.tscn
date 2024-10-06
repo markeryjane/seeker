@@ -187,16 +187,16 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.627451)
 theme_override_fonts/font = ExtResource("2_8n5eh")
-theme_override_font_sizes/font_size = 59
-text = "+2"
+theme_override_font_sizes/font_size = 52
+text = "+100"
 
 [node name="EffectLabelType" type="Label" parent="VBoxContainer/EffectText"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.627451)
 theme_override_fonts/font = ExtResource("2_8n5eh")
-theme_override_font_sizes/font_size = 59
-text = "turns"
+theme_override_font_sizes/font_size = 52
+text = "points"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -208,11 +208,12 @@ unique_name_in_owner = true
 script = ExtResource("3_jt4sv")
 
 [node name="Polygon2D" type="Polygon2D" parent="SelectedIcon"]
+color = Color(0.924938, 0.909383, 0.822607, 1)
 polygon = PackedVector2Array(96, -107, 80, -102, 68, -91, 63, -73, 66, -47, 80, -27, 94, -14, 109, -9, 143, -15, 157, -22, 166, -30, 176, -43, 178, -56, 176, -75, 172, -98, 164, -107, 144, -109, 118, -108)
 
 [node name="SelectedIconPolygon" type="Polygon2D" parent="SelectedIcon"]
 position = Vector2(102, 56)
-color = Color(1.63645e-06, 0.677877, 0.534922, 1)
+color = Color(0.205166, 0.665432, 0.644282, 1)
 polygon = PackedVector2Array(-29, -115, 13, -77, 63, -145, 44, -150, 11, -107, -16, -129)
 
 [node name="SelectedAnimationPlayer" type="AnimationPlayer" parent="SelectedIcon"]
