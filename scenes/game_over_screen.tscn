@@ -86,6 +86,7 @@ text = "500
 horizontal_alignment = 1
 
 [node name="RestartText" type="Label" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "
@@ -99,3 +100,9 @@ stream = ExtResource("2_kee6j")
 [node name="ScoreTickSfx" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_u4kuj")
+
+[node name="ShowRestartTimer" type="Timer" parent="."]
+wait_time = 1.8
+autostart = true
+
+[connection signal="timeout" from="ShowRestartTimer" to="." method="_on_show_restart_timer_timeout"]

@@ -11,13 +11,18 @@ var gameover_year_bonus_active = false
 @onready var summer_bonus_text: Label = %SummerBonusText
 @onready var autumn_bonus_text: Label = %AutumnBonusText
 @onready var year_bonus_text: Label = %YearBonusText
+@onready var restart_text: Label = %RestartText
 
 @onready var score_text: Label = %ScoreText
 @onready var score_tick_sfx: AudioStreamPlayer = %ScoreTickSfx
 
+var can_restart = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$GameOverSfx.play()
+	
+	restart_text.visible = false
 	
 	var bonus_multiplier = 0
 	
@@ -66,9 +71,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") and can_restart:
 		SceneTransition.goToScene(load("res://scenes/title_screen.tscn"))
 	
 	if score_text.text != str(final_score):
 		score_text.text = str(final_score)
 		score_tick_sfx.play()
+
+
+func _on_show_restart_timer_timeout() -> void:
+	can_restart = true
+	restart_text.visible = true

@@ -1,7 +1,8 @@
 extends Node2D
 const GAME_OVER_SCREEN = preload("res://scenes/game_over_screen.tscn")
 const CARD_BASE = preload("res://card_base.tscn")
-var base_deck = []
+const EXTRA_TURN_INDICATOR = preload("res://scenes/extra_turn_indicator.tscn")
+
 
 var deck = []
 var play_area = []
@@ -26,7 +27,6 @@ var hand = []
 @onready var discard_sfx: AudioStreamPlayer = %DiscardSfx
 @onready var score_tick_sfx: AudioStreamPlayer = %ScoreTickSfx
 
-
 var selection_index = 0
 
 var horizontal_selection_index = 1
@@ -43,13 +43,15 @@ var combo_display_value:int = 0
 
 var game_is_over = false
 
+var input_is_disabled = false
+
 func setup_deck():
 	for i in 12:
 		for j in 4:
 			var card_instance = CARD_BASE.instantiate()
 			card_instance.month = i+1
 			
-			var _is_none_type = randi_range(0,7)
+			var _is_none_type = randi_range(0,2)
 			var _type = randi_range(0,2)
 			if _is_none_type != 0:
 				_type = 0
@@ -95,6 +97,8 @@ func spend_turn():
 func game_over():
 	if game_is_over: return
 	
+	remove_child(hand_node)
+	
 	game_is_over = true
 	
 	await get_tree().create_timer(1.5).timeout
@@ -131,6 +135,7 @@ func _process(delta: float) -> void:
 		turns_left_container.modulate = Color.WHITE
 		
 	if game_is_over: return
+	if input_is_disabled: return
 	
 	if horizontal_selection_index == 1:
 		pop_up_selected_card()
@@ -231,7 +236,8 @@ func is_valid_hand() -> bool:
 	return false
 
 func play_hand():
-	#calculate score here
+	input_is_disabled = true
+	
 	for card in hand:
 		if card.selected:
 			scoring_numbers.append(card.month)
@@ -239,6 +245,7 @@ func play_hand():
 	if !is_valid_hand():
 		invalid_hand_sfx.play()
 		scoring_numbers.clear()
+		input_is_disabled = false
 		return
 		
 	play_hand_sfx.play()
@@ -263,6 +270,8 @@ func play_hand():
 	reposition_cards_in_hand()
 	spend_turn()
 	scoring_numbers.clear()
+	
+	input_is_disabled = false
 	
 
 func discard():
@@ -298,6 +307,10 @@ func calculate_score():
 				_points_to_add += card.effect_amount
 			elif card.card_effect == 1: #add turns
 				turns_left += card.effect_amount + 1 #give an extra cos we're using a turn
+				
+				var _inst = EXTRA_TURN_INDICATOR.instantiate()
+				_inst.position = Vector2(1000,760)
+				add_child(_inst)
 			year_ui.activate_month(card.month)
 			
 	score_display_value = _points_to_add
