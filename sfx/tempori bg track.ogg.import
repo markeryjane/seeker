@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://co5e7m7otd5u3"
+path="res://.godot/imported/tempori bg track.ogg-994694046ee6b64e0a5ef041c6e217cc.oggvorbisstr"
+
+[deps]
+
+source_file="res://sfx/tempori bg track.ogg"
+dest_files=["res://.godot/imported/tempori bg track.ogg-994694046ee6b64e0a5ef041c6e217cc.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

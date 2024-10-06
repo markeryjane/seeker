@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0hlm8sbsg7xa"]
+
+[ext_resource type="Script" path="res://audio_manager.gd" id="1_m37ni"]
+[ext_resource type="AudioStream" uid="uid://co5e7m7otd5u3" path="res://sfx/tempori bg track.ogg" id="2_hc1y4"]
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource("1_m37ni")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_hc1y4")
+pitch_scale = 0.9
