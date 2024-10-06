@@ -10,7 +10,8 @@ var has_seen_tutorial = false
 func _ready() -> void:
 	SignalBus.connect("played_hand", just_played_hand)
 	if SignalBus.has_seen_tutorial:
-		queue_free()
+		visible = false
+		#queue_free()
 	
 
 

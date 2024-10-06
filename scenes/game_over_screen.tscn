@@ -1,19 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqr5kkyshfci1"]
+[gd_scene load_steps=5 format=3 uid="uid://dqr5kkyshfci1"]
 
 [ext_resource type="Script" path="res://scenes/game_over_screen.gd" id="1_8qjxw"]
 [ext_resource type="AudioStream" uid="uid://fiho0msdg58v" path="res://sfx/bududuh_sfx.wav" id="2_kee6j"]
 [ext_resource type="AudioStream" uid="uid://bdip6uleqr1sl" path="res://sfx/pop_sfx.wav" id="3_u4kuj"]
+[ext_resource type="AudioStream" uid="uid://c1b4nbywpb003" path="res://sfx/prup_sfx.wav" id="4_3ouu1"]
 
 [node name="GameOverScreen" type="Node2D"]
 script = ExtResource("1_8qjxw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = 528.0
 offset_top = 356.0
-offset_right = 2075.0
+offset_right = 1475.0
 offset_bottom = 1227.0
-color = Color(0, 0, 0, 0.792157)
+color = Color(0.140805, 0.107764, 0.048917, 0.792157)
 
 [node name="BonusBackground" type="ColorRect" parent="."]
+visible = false
 offset_left = 760.0
 offset_top = 361.0
 offset_right = 1278.0
@@ -108,5 +112,9 @@ stream = ExtResource("3_u4kuj")
 [node name="ShowRestartTimer" type="Timer" parent="."]
 wait_time = 1.8
 autostart = true
+
+[node name="SelectSfx" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_3ouu1")
 
 [connection signal="timeout" from="ShowRestartTimer" to="." method="_on_show_restart_timer_timeout"]

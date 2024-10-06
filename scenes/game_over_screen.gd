@@ -15,6 +15,7 @@ var gameover_year_bonus_active = false
 
 @onready var score_text: Label = %ScoreText
 @onready var score_tick_sfx: AudioStreamPlayer = %ScoreTickSfx
+@onready var select_sfx: AudioStreamPlayer = %SelectSfx
 
 var can_restart = false
 
@@ -73,6 +74,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and can_restart:
 		SceneTransition.goToScene(load("res://scenes/characterselect.tscn"))	
+		select_sfx.play()
 	if score_text.text != str(final_score):
 		score_text.text = str(final_score)
 		score_tick_sfx.play()

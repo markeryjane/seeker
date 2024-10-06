@@ -1,16 +1,86 @@
-[gd_scene format=3 uid="uid://cfwx3ur281jtl"]
+[gd_scene load_steps=5 format=3 uid="uid://cfwx3ur281jtl"]
+
+[ext_resource type="Script" path="res://scenes/rat.gd" id="1_d5q1n"]
+
+[sub_resource type="Animation" id="Animation_elxd0"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Polygon2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Polygon2D5:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.279253]
+}
+
+[sub_resource type="Animation" id="Animation_dbldu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Polygon2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Polygon2D5:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p6imm"]
+_data = {
+"RESET": SubResource("Animation_dbldu"),
+"idle": SubResource("Animation_elxd0")
+}
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_d5q1n")
+
+[node name="Polygon2D5" type="Polygon2D" parent="."]
+position = Vector2(15, 5)
+color = Color(0.942975, 0.356386, 0.509773, 1)
+offset = Vector2(-16, -6)
+polygon = PackedVector2Array(14, 3, 53, -38, 16, 8)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.753204, 0.601138, 0.599527, 1)
 polygon = PackedVector2Array(-7, -37, -17, -28, -30, -12, 4, -21, 21, -29, 22, -41, 19, -50, 10, -54, 4, -51, 4, -46, 4, -40, 0, -51, -5, -54, -15, -53, -17, -48, -17, -39, -7, -41)
 
-[node name="Polygon2D2" type="Polygon2D" parent="."]
+[node name="Polygon2D2" type="Polygon2D" parent="Polygon2D"]
 color = Color(0.00820202, 0.00820202, 0.00820202, 1)
 polygon = PackedVector2Array(-1, -32, -3, -39, -6, -31, -5, -31)
 
-[node name="Polygon2D3" type="Polygon2D" parent="."]
+[node name="Polygon2D3" type="Polygon2D" parent="Polygon2D"]
 position = Vector2(9, 0)
 color = Color(0.00820202, 0.00820202, 0.00820202, 1)
 polygon = PackedVector2Array(-1, -32, -3, -39, -6, -31, -5, -31)
@@ -19,6 +89,7 @@ polygon = PackedVector2Array(-1, -32, -3, -39, -6, -31, -5, -31)
 color = Color(0.753204, 0.601138, 0.599527, 1)
 polygon = PackedVector2Array(5, -24, -1, -8, -10, 7, 16, 7, 11, -5, 8, -18)
 
-[node name="Polygon2D5" type="Polygon2D" parent="."]
-color = Color(0.942975, 0.356386, 0.509773, 1)
-polygon = PackedVector2Array(14, 3, 53, -38, 16, 8)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p6imm")
+}

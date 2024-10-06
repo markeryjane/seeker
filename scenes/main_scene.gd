@@ -3,6 +3,7 @@ const GAME_OVER_SCREEN = preload("res://scenes/game_over_screen.tscn")
 const CARD_BASE = preload("res://card_base.tscn")
 const EXTRA_TURN_INDICATOR = preload("res://scenes/extra_turn_indicator.tscn")
 const PARTICLES = preload("res://particles.tscn")
+@onready var character_jump_animator: AnimationPlayer = %CharacterJumpAnimator
 
 var deck = []
 var play_area = []
@@ -127,6 +128,12 @@ func game_over():
 	game_is_over = true
 	
 	await get_tree().create_timer(1.5).timeout
+	
+	if tutorial:
+		tutorial.visible = false
+	if turns_left_container:
+		turns_left_container.visible = false
+	
 	var inst = GAME_OVER_SCREEN.instantiate()
 	inst.final_score = score
 	inst.gameover_winter_bonus_active = year_ui.winter_bonus_active
@@ -307,6 +314,7 @@ func play_hand():
 		input_is_disabled = false
 		return
 		
+	character_jump_animator.play("jump")
 	pressed_play_or_discard_sfx.play()
 	match scoring_numbers.size():
 		3:
