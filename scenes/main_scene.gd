@@ -330,7 +330,7 @@ func discard():
 func calculate_score():
 	var _points_to_add = 0
 	for i in scoring_numbers:
-		_points_to_add += 1
+		_points_to_add += 10
 	for card in hand:
 		if card.selected:
 			if card.card_effect == 2: #add points
