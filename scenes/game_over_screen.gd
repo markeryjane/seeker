@@ -13,6 +13,7 @@ var gameover_year_bonus_active = false
 @onready var year_bonus_text: Label = %YearBonusText
 
 @onready var score_text: Label = %ScoreText
+@onready var score_tick_sfx: AudioStreamPlayer = %ScoreTickSfx
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -70,3 +71,4 @@ func _process(delta: float) -> void:
 	
 	if score_text.text != str(final_score):
 		score_text.text = str(final_score)
+		score_tick_sfx.play()

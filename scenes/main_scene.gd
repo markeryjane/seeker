@@ -24,6 +24,7 @@ var hand = []
 @onready var invalid_hand_sfx: AudioStreamPlayer = %InvalidHandSfx
 @onready var play_hand_sfx: AudioStreamPlayer = %PlayHandSfx
 @onready var discard_sfx: AudioStreamPlayer = %DiscardSfx
+@onready var score_tick_sfx: AudioStreamPlayer = %ScoreTickSfx
 
 
 var selection_index = 0
@@ -118,6 +119,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if score_value_label.text != str(score):
 		score_value_label.text = str(score)
+		score_tick_sfx.play()
 	if turns_left_value_label.text != str(turns_left):
 		turns_left_value_label.text = str(turns_left)
 	
@@ -226,6 +228,10 @@ func play_hand():
 		invalid_hand_sfx.play()
 		scoring_numbers.clear()
 		return
+		
+	play_hand_sfx.play()
+	
+	await get_tree().create_timer(.3).timeout
 	
 	calculate_score()
 	
@@ -245,7 +251,7 @@ func play_hand():
 	reposition_cards_in_hand()
 	spend_turn()
 	scoring_numbers.clear()
-	play_hand_sfx.play()
+	
 
 func discard():
 	var _num_selected = 0

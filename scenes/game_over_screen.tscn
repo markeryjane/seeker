@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqr5kkyshfci1"]
+[gd_scene load_steps=4 format=3 uid="uid://dqr5kkyshfci1"]
 
 [ext_resource type="Script" path="res://scenes/game_over_screen.gd" id="1_8qjxw"]
 [ext_resource type="AudioStream" uid="uid://fiho0msdg58v" path="res://sfx/bududuh_sfx.wav" id="2_kee6j"]
+[ext_resource type="AudioStream" uid="uid://bdip6uleqr1sl" path="res://sfx/pop_sfx.wav" id="3_u4kuj"]
 
 [node name="GameOverScreen" type="Node2D"]
 script = ExtResource("1_8qjxw")
@@ -94,3 +95,7 @@ horizontal_alignment = 1
 
 [node name="GameOverSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_kee6j")
+
+[node name="ScoreTickSfx" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_u4kuj")
