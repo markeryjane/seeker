@@ -282,13 +282,16 @@ func calculate_score():
 	score_display_value = _points_to_add
 	points_label.text = str(score_display_value)
 	
-	_points_to_add *= scoring_numbers.size()
+	var _all_cards_multiplier = 0
+	if scoring_numbers.size() == max_hand_size:
+		_all_cards_multiplier = 3
+	_points_to_add *= scoring_numbers.size() + _all_cards_multiplier
 	
 	#score += _points_to_add
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "score", score+_points_to_add, 0.9)
 	
-	combo_display_value = scoring_numbers.size()
+	combo_display_value = scoring_numbers.size() + _all_cards_multiplier
 	multiplier_label.text = str(combo_display_value)
 	
 	combo_display_animation_player.play("animate_combo_display")
