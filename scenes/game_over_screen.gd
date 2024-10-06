@@ -52,10 +52,21 @@ func _ready() -> void:
 		year_bonus_text.modulate = Color.html("#ffffff32")
 	
 	final_score *= max(1,bonus_multiplier)
-	score_text.text = str(final_score)
+	var final_score_to_show = final_score
+	final_score = 0
+	
+	await get_tree().create_timer(.6).timeout
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "final_score", final_score_to_show, .4)
+	
+	#score_text.text = str(final_score)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		SceneTransition.goToScene(load("res://scenes/title_screen.tscn"))
+	
+	if score_text.text != str(final_score):
+		score_text.text = str(final_score)
