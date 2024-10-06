@@ -93,6 +93,8 @@ func spend_turn():
 		game_over()
 
 func game_over():
+	if game_is_over: return
+	
 	game_is_over = true
 	
 	await get_tree().create_timer(1.5).timeout
@@ -314,6 +316,11 @@ func calculate_score():
 	multiplier_label.text = str(combo_display_value)
 	
 	combo_display_animation_player.play("animate_combo_display")
+	
+	#check december game over
+	for i in scoring_numbers:
+		if i == 12:
+			game_over()
 	
 	#printt("POINTS",_points_to_add)
 	#print(scoring_numbers)
