@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://dj7kwj60i6o58"]
+
+[ext_resource type="PackedScene" uid="uid://tqwjmeil781v" path="res://scenes/charafter1.tscn" id="1_cinrh"]
+[ext_resource type="Script" path="res://scenes/characterselect.gd" id="1_s2u3j"]
+[ext_resource type="PackedScene" uid="uid://cfwx3ur281jtl" path="res://scenes/rat.tscn" id="2_xwbxs"]
+[ext_resource type="PackedScene" uid="uid://y24iny3awuk5" path="res://scenes/bear.tscn" id="3_ifga2"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_s2u3j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 2140.0
+offset_bottom = 1250.0
+color = Color(0.147094, 0.044442, 0.00514834, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 694.0
+offset_top = 667.0
+offset_right = 1295.0
+offset_bottom = 667.0
+theme_override_constants/separation = 300
+
+[node name="Panel" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="char1" parent="HBoxContainer/Panel" instance=ExtResource("1_cinrh")]
+unique_name_in_owner = true
+
+[node name="Panel2" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="char2" parent="HBoxContainer/Panel2" instance=ExtResource("2_xwbxs")]
+unique_name_in_owner = true
+scale = Vector2(1.4, 1.4)
+
+[node name="Panel3" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="char3" parent="HBoxContainer/Panel3" instance=ExtResource("3_ifga2")]
+unique_name_in_owner = true
+scale = Vector2(1.8, 1.8)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 1989.0
+offset_bottom = 412.0
+
+[node name="PlayLabel" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+text = "Choose a keeper"
+horizontal_alignment = 1
+
+[node name="Marker" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(694, 667)
+
+[node name="Polygon2D" type="Polygon2D" parent="Marker"]
+color = Color(0.70176, 0.104858, 0.260041, 1)
+polygon = PackedVector2Array(-16, 147, -17, 112, -53, 111, -1, 62, 57, 112, 16, 115, 16, 149)
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+offset_left = 14.0
+offset_top = 790.0
+offset_right = 2003.0
+offset_bottom = 1202.0
+
+[node name="DescriptionText" type="Label" parent="CenterContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+text = "Start with 7 cards"
+horizontal_alignment = 1

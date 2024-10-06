@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cfwx3ur281jtl"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.753204, 0.601138, 0.599527, 1)
+polygon = PackedVector2Array(-7, -37, -17, -28, -30, -12, 4, -21, 21, -29, 22, -41, 19, -50, 10, -54, 4, -51, 4, -46, 4, -40, 0, -51, -5, -54, -15, -53, -17, -48, -17, -39, -7, -41)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+color = Color(0.00820202, 0.00820202, 0.00820202, 1)
+polygon = PackedVector2Array(-1, -32, -3, -39, -6, -31, -5, -31)
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+position = Vector2(9, 0)
+color = Color(0.00820202, 0.00820202, 0.00820202, 1)
+polygon = PackedVector2Array(-1, -32, -3, -39, -6, -31, -5, -31)
+
+[node name="Polygon2D4" type="Polygon2D" parent="."]
+color = Color(0.753204, 0.601138, 0.599527, 1)
+polygon = PackedVector2Array(5, -24, -1, -8, -10, 7, 16, 7, 11, -5, 8, -18)
+
+[node name="Polygon2D5" type="Polygon2D" parent="."]
+color = Color(0.942975, 0.356386, 0.509773, 1)
+polygon = PackedVector2Array(14, 3, 53, -38, 16, 8)

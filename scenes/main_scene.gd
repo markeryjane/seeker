@@ -63,6 +63,10 @@ func setup_deck():
 			card_instance.month = i+1
 			
 			var _is_none_type = randi_range(0,2)
+			
+			
+			
+			
 			var _type = randi_range(0,2)
 			if _is_none_type != 0:
 				_type = 0
@@ -82,6 +86,9 @@ func setup_deck():
 					#amount = randi_range(1,2)
 				
 				if _type == 2: #points
+					if SignalBus.character_selected == 1:
+						amount *= 1.5
+						amount = round(amount)
 					amount *= 50
 				else: #turns
 					if card_instance.month == 12:
@@ -128,6 +135,14 @@ func game_over():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if SignalBus.character_selected == 2:
+		turns_left = 7
+	if SignalBus.character_selected == 0:
+		max_hand_size = 7
+	else:
+		max_hand_size = 6
+		hand_node.position.x += 50
+	
 	setup_deck()
 	populate_hand()
 	reposition_cards_in_hand()
@@ -135,6 +150,8 @@ func _ready() -> void:
 	
 	play_label.modulate = Color.WHITE
 	discard_label.modulate = Color.DIM_GRAY
+	
+	
 	
 	#AudioManager.start_bgm()
 	#$BGM.play()
@@ -223,6 +240,8 @@ func _process(delta: float) -> void:
 		
 	if deck.size() == 0:
 		setup_deck()
+	
+	
 
 
 func select_card():
