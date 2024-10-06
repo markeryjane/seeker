@@ -67,7 +67,7 @@ func setup_deck():
 			#if _type == 1: #add turn
 				#_type = 2 #change it to add points
 			
-			card_instance.card_effect = _type
+			
 			card_instance.effect_amount = 0
 			
 			if _type != 0:
@@ -84,7 +84,7 @@ func setup_deck():
 				else: #turns
 					if card_instance.month == 12:
 						_type = 0
-				
+				card_instance.card_effect = _type
 				card_instance.effect_amount = amount
 			deck.append(card_instance)
 			
