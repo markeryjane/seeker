@@ -9,7 +9,8 @@ var has_seen_tutorial = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.connect("played_hand", just_played_hand)
-	
+	if SignalBus.has_seen_tutorial:
+		queue_free()
 	
 
 
@@ -31,3 +32,5 @@ func just_played_hand():
 		play_label.text = ""
 		visible = false
 		has_seen_tutorial = true
+		
+		SignalBus.has_seen_tutorial = true

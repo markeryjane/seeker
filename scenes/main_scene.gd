@@ -35,6 +35,7 @@ var hand = []
 @onready var play_hand_5: AudioStreamPlayer = %PlayHand5
 @onready var play_hand_6: AudioStreamPlayer = %PlayHand6
 @onready var play_hand_7: AudioStreamPlayer = %PlayHand7
+@onready var tutorial: Node2D = %Tutorial
 
 
 var selection_index = 0
@@ -143,7 +144,6 @@ func _process(delta: float) -> void:
 	if score_value_label.text != str(score):
 		score_value_label.text = str(score)
 		score_tick_sfx.play()
-	
 	
 	if turns_left <= 1:
 		turns_left_container.modulate = Color.RED
@@ -323,6 +323,7 @@ func play_hand():
 	scoring_numbers.clear()
 	
 	input_is_disabled = false
+	
 	
 
 func discard():

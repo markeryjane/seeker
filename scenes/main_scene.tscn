@@ -252,6 +252,7 @@ volume_db = 8.0
 pitch_scale = 0.22
 
 [node name="Tutorial" parent="." instance=ExtResource("17_nw0oi")]
+unique_name_in_owner = true
 position = Vector2(498, 590)
 
 [node name="ExtraTurnSfx" type="AudioStreamPlayer" parent="."]
