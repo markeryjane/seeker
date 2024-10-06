@@ -9,7 +9,7 @@ func _ready() -> void:
 	title_bgm.volume_db = -80
 	
 	var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(title_bgm, "volume_db", 1.0, 5)
+	tween.tween_property(title_bgm, "volume_db", 1.0, 15)
 	title_bgm.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -36,6 +36,9 @@ var hand = []
 @onready var play_hand_6: AudioStreamPlayer = %PlayHand6
 @onready var play_hand_7: AudioStreamPlayer = %PlayHand7
 @onready var tutorial: Node2D = %Tutorial
+@onready var alien: Node2D = %alien
+@onready var rat: Node2D = %rat
+@onready var bear: Node2D = %bear
 
 
 var selection_index = 0
@@ -142,6 +145,16 @@ func _ready() -> void:
 	else:
 		max_hand_size = 6
 		hand_node.position.x += 50
+		
+	
+	match(SignalBus.character_selected):
+		0:
+			alien.visible = true
+		1:
+			rat.visible = true
+		2:
+			bear.visible = true
+	
 	
 	setup_deck()
 	populate_hand()

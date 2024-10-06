@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://hwsl16lji7g8"]
+[gd_scene load_steps=25 format=3 uid="uid://hwsl16lji7g8"]
 
 [ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_m7ixl"]
 [ext_resource type="PackedScene" uid="uid://c0777y0wu7oa" path="res://scenes/year_ui.tscn" id="2_xjgos"]
@@ -18,6 +18,9 @@
 [ext_resource type="AudioStream" uid="uid://twe74y8d7jcw" path="res://sfx/low_dop_sfx.wav" id="16_g2bl0"]
 [ext_resource type="PackedScene" uid="uid://wwfh1fn78wwy" path="res://tutorial.tscn" id="17_nw0oi"]
 [ext_resource type="AudioStream" uid="uid://iax7gvbcml5d" path="res://sfx/extra_turn_sfx.wav" id="18_mar6m"]
+[ext_resource type="PackedScene" uid="uid://tqwjmeil781v" path="res://scenes/charafter1.tscn" id="19_oshqn"]
+[ext_resource type="PackedScene" uid="uid://cfwx3ur281jtl" path="res://scenes/rat.tscn" id="20_tftay"]
+[ext_resource type="PackedScene" uid="uid://y24iny3awuk5" path="res://scenes/bear.tscn" id="21_7s1mw"]
 
 [sub_resource type="Animation" id="Animation_8s8fh"]
 length = 0.001
@@ -258,3 +261,21 @@ position = Vector2(498, 590)
 [node name="ExtraTurnSfx" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("18_mar6m")
+
+[node name="CharacterHolder" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(262, 668)
+
+[node name="alien" parent="CharacterHolder" instance=ExtResource("19_oshqn")]
+unique_name_in_owner = true
+visible = false
+
+[node name="rat" parent="CharacterHolder" instance=ExtResource("20_tftay")]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(1.4, 1.4)
+
+[node name="bear" parent="CharacterHolder" instance=ExtResource("21_7s1mw")]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(1.8, 1.8)
