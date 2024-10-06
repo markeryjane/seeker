@@ -6,6 +6,7 @@
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_m37ni")
 
-[node name="BGM" type="AudioStreamPlayer" parent="."]
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("2_hc1y4")
 pitch_scale = 0.9
