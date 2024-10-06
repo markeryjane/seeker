@@ -26,15 +26,15 @@ script = SubResource("GDScript_mc4h1")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 33
+amount = 15
 lifetime = 0.6
 one_shot = true
 texture = ExtResource("1_xrtol")
 direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 141.37
-initial_velocity_max = 527.15
+initial_velocity_min = 329.19
+initial_velocity_max = 933.24
 angular_velocity_max = 628.63
 angle_min = -720.0
 angle_max = 720.0
