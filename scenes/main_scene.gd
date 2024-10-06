@@ -28,6 +28,7 @@ var hand = []
 @onready var discard_sfx: AudioStreamPlayer = %DiscardSfx
 @onready var score_tick_sfx: AudioStreamPlayer = %ScoreTickSfx
 @onready var pressed_play_or_discard_sfx: AudioStreamPlayer = %PressedPlayOrDiscardSfx
+@onready var extra_turn_sfx: AudioStreamPlayer = %ExtraTurnSfx
 
 @onready var play_hand_3: AudioStreamPlayer = %PlayHand3
 @onready var play_hand_4: AudioStreamPlayer = %PlayHand4
@@ -358,7 +359,7 @@ func calculate_score():
 				_points_to_add += card.effect_amount
 			elif card.card_effect == 1: #add turns
 				turns_left += card.effect_amount
-				
+				extra_turn_sfx.play()
 				var _inst = EXTRA_TURN_INDICATOR.instantiate()
 				_inst.position = Vector2(990,655)
 				add_child(_inst)
