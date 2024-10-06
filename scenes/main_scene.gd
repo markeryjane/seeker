@@ -202,6 +202,12 @@ func select_card():
 		deselect_card_sfx.play()
 
 func is_valid_hand() -> bool:
+	var december_skip_used = true
+	var december_skip_available = scoring_numbers.has(1) and scoring_numbers.has(12)
+	if december_skip_available:
+		december_skip_used = false
+		print("skip avail")
+	
 	var _selected_count = 0
 	for card in hand:
 		if card.selected:
@@ -212,7 +218,12 @@ func is_valid_hand() -> bool:
 			printt('ind',_index)
 			if _index > 0:
 				if scoring_numbers[_index]-1 != scoring_numbers[_index-1] and scoring_numbers[_index] != scoring_numbers[_index-1]:
-					return false
+					if december_skip_available and !december_skip_used:
+						december_skip_used = true
+						_index -= 1
+						continue
+					else:
+						return false
 			_index -= 1
 		print("RETURN TRUE")
 		return true
