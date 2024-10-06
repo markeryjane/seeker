@@ -72,6 +72,15 @@ func _ready() -> void:
 				effect_label_amount.text = str(effect_amount)
 			effect_label_type.text = " turns"
 	reset_pop()
+	
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "scale", Vector2(0,0), .001)
+	tween.tween_property(self, "scale", Vector2(.8,.8), .3)
+	
+	$Node2D/CPUParticles2D.emitting = true
+	var month_colors = ["#0091de", "#ff8ec0", "#ff7a69", "#61f2ce", "#f5d67d", "#ff0a37", "#3284ff", "#a88246", "#7d4f4e", "#d06900", "#b63900", "#2a4fff"]
+	$Node2D/CPUParticles2D.color = month_colors[month-1]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

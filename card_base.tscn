@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://f28lgpoq2hdn"]
+[gd_scene load_steps=11 format=3 uid="uid://f28lgpoq2hdn"]
 
 [ext_resource type="Script" path="res://base_card.gd" id="1_envtt"]
 [ext_resource type="FontVariation" uid="uid://xindnjsr4tie" path="res://fonts/jupiteroid_font.tres" id="2_8n5eh"]
 [ext_resource type="Script" path="res://selected_icon.gd" id="3_jt4sv"]
+[ext_resource type="PackedScene" uid="uid://qkf0swbtalhw" path="res://particles.tscn" id="4_wfteq"]
 
 [sub_resource type="Animation" id="Animation_gw7wm"]
 length = 0.001
@@ -220,3 +221,5 @@ polygon = PackedVector2Array(-29, -115, 13, -77, 63, -145, 44, -150, 11, -107, -
 libraries = {
 "": SubResource("AnimationLibrary_572q1")
 }
+
+[node name="Node2D" parent="." instance=ExtResource("4_wfteq")]

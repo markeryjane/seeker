@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://qkf0swbtalhw"]
+
+[ext_resource type="Texture2D" uid="uid://dylfu8sbqbrxi" path="res://sprites/flowerparticle.png" id="1_34ek7"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 30
+one_shot = true
+texture = ExtResource("1_34ek7")
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 141.37
+initial_velocity_max = 359.64
+angular_velocity_max = 628.63
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
