@@ -78,14 +78,24 @@ func _ready() -> void:
 	tween.tween_property(self, "scale", Vector2(0,0), .001)
 	tween.tween_property(self, "scale", Vector2(.8,.8), .3)
 	
-	$Node2D/CPUParticles2D.emitting = true
-	var month_colors = ["#0091de", "#ff8ec0", "#ff7a69", "#61f2ce", "#f5d67d", "#ff0a37", "#3284ff", "#a88246", "#7d4f4e", "#d06900", "#b63900", "#2a4fff"]
-	$Node2D/CPUParticles2D.color = month_colors[month-1]
+	#$Node2D/CPUParticles2D.emitting = true
+	#var month_colors = ["#0091de", "#ff8ec0", "#ff7a69", "#61f2ce", "#f5d67d", "#ff0a37", "#3284ff", "#a88246", "#7d4f4e", "#d06900", "#b63900", "#2a4fff"]
+	#$Node2D/CPUParticles2D.color = month_colors[month-1]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	selected_icon.visible = selected
+
+func destroy():
+	#$Node2D/CPUParticles2D.emitting = true
+	#var month_colors = ["#0091de", "#ff8ec0", "#ff7a69", "#61f2ce", "#f5d67d", "#ff0a37", "#3284ff", "#a88246", "#7d4f4e", "#d06900", "#b63900", "#2a4fff"]
+	#$Node2D/CPUParticles2D.color = month_colors[month-1]
+	var tween = get_tree().create_tween()
+	#tween.tween_property(self, "scale", Vector2(0,0), .001)
+	tween.tween_property(self, "scale", Vector2(0,0), .3)
+	await get_tree().create_timer(1.0).timeout
+	queue_free()
 
 func pop_up():
 	scale = Vector2(1,1)

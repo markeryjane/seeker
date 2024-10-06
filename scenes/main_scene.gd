@@ -2,7 +2,7 @@ extends Node2D
 const GAME_OVER_SCREEN = preload("res://scenes/game_over_screen.tscn")
 const CARD_BASE = preload("res://card_base.tscn")
 const EXTRA_TURN_INDICATOR = preload("res://scenes/extra_turn_indicator.tscn")
-
+const PARTICLES = preload("res://particles.tscn")
 
 var deck = []
 var play_area = []
@@ -142,8 +142,7 @@ func _process(delta: float) -> void:
 	if score_value_label.text != str(score):
 		score_value_label.text = str(score)
 		score_tick_sfx.play()
-	if turns_left_value_label.text != str(turns_left):
-		turns_left_value_label.text = str(turns_left)
+	
 	
 	if turns_left <= 1:
 		turns_left_container.modulate = Color.RED
@@ -152,6 +151,9 @@ func _process(delta: float) -> void:
 		
 	if game_is_over: return
 	if input_is_disabled: return
+	
+	if turns_left_value_label.text != str(turns_left):
+		turns_left_value_label.text = str(turns_left)
 	
 	if horizontal_selection_index == 1:
 		pop_up_selected_card()
@@ -252,6 +254,8 @@ func is_valid_hand() -> bool:
 	return false
 
 func play_hand():
+	SignalBus.played_hand.emit()
+	
 	input_is_disabled = true
 	
 	for card in hand:
@@ -283,10 +287,21 @@ func play_hand():
 	
 	calculate_score()
 	
+	for card in hand:
+		if card.selected:
+			print("particle")
+			var _part = PARTICLES.instantiate()
+			_part.modulate = card.modulate
+			_part.position = card.global_position
+			_part.type = card.month
+			add_child(_part)
+			
+	
 	for i in 200: #idk why but this works
 		for card in hand:
 			if card.selected:
 				card.queue_free()
+				#card.destroy()
 				hand.pop_at(hand.find(card))
 				hand_node.remove_child(card)
 				reposition_cards_in_hand()
@@ -363,6 +378,8 @@ func calculate_score():
 	#check december game over
 	for i in scoring_numbers:
 		if i == 12:
+			turns_left_value_label.text = "December!"
+			$TurnsLeftContainer/VBoxContainer/TurnsLeftTextLabel.visible = false
 			game_over()
 	
 	#printt("POINTS",_points_to_add)

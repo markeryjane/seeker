@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://hwsl16lji7g8"]
+[gd_scene load_steps=21 format=3 uid="uid://hwsl16lji7g8"]
 
 [ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_m7ixl"]
 [ext_resource type="PackedScene" uid="uid://c0777y0wu7oa" path="res://scenes/year_ui.tscn" id="2_xjgos"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://chslmfamy1ou6" path="res://sfx/pluck_seven.wav" id="14_kgdue"]
 [ext_resource type="AudioStream" uid="uid://bt15jh6trd4xb" path="res://sfx/tempori_short_no_fx.ogg" id="15_ti2kx"]
 [ext_resource type="AudioStream" uid="uid://twe74y8d7jcw" path="res://sfx/low_dop_sfx.wav" id="16_g2bl0"]
+[ext_resource type="PackedScene" uid="uid://wwfh1fn78wwy" path="res://tutorial.tscn" id="17_nw0oi"]
 
 [sub_resource type="Animation" id="Animation_8s8fh"]
 length = 0.001
@@ -74,9 +75,9 @@ position = Vector2(756, 178)
 
 [node name="PlayDiscardCenterContainer" type="CenterContainer" parent="."]
 unique_name_in_owner = true
-offset_top = 586.0
+offset_top = 601.0
 offset_right = 2003.0
-offset_bottom = 1228.0
+offset_bottom = 1243.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PlayDiscardCenterContainer"]
 layout_mode = 2
@@ -248,3 +249,6 @@ unique_name_in_owner = true
 stream = ExtResource("16_g2bl0")
 volume_db = 8.0
 pitch_scale = 0.22
+
+[node name="Tutorial" parent="." instance=ExtResource("17_nw0oi")]
+position = Vector2(498, 590)

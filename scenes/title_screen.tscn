@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjkeqilxu2pxa"]
+[gd_scene load_steps=3 format=3 uid="uid://cjkeqilxu2pxa"]
 
 [ext_resource type="Script" path="res://scenes/title_screen.gd" id="1_tboce"]
+[ext_resource type="PackedScene" uid="uid://cwpxr3piibnx2" path="res://mandala.tscn" id="2_5b5co"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -12,6 +13,23 @@ layout_mode = 0
 offset_right = 2008.0
 offset_bottom = 1202.0
 color = Color(0.514217, 0.162162, 0.303138, 1)
+
+[node name="Node2D" parent="." instance=ExtResource("2_5b5co")]
+modulate = Color(0.45, 0.78, 1, 1)
+position = Vector2(978, 572)
+scale = Vector2(2, 2)
+speed = 0.56
+
+[node name="Node2D2" parent="." instance=ExtResource("2_5b5co")]
+modulate = Color(0.45, 0.78, 1, 1)
+position = Vector2(978, 572)
+scale = Vector2(1.5, 1.5)
+speed = 0.12
+
+[node name="Node2D3" parent="." instance=ExtResource("2_5b5co")]
+modulate = Color(0.45, 0.78, 1, 1)
+position = Vector2(978, 572)
+speed = -0.25
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
@@ -25,18 +43,21 @@ theme_override_constants/separation = 300
 
 [node name="PressEnterText2" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.403922, 0.211765, 0.301961, 1)
 theme_override_font_sizes/font_size = 200
-text = "Tempori."
+text = "Monthkeeper"
 horizontal_alignment = 1
 
 [node name="PressEnterText" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.405764, 0.213695, 0.300649, 1)
 theme_override_font_sizes/font_size = 130
 text = "Press Space to start"
 horizontal_alignment = 1
 
 [node name="ByMarkeryjaneText" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.405764, 0.213695, 0.300649, 1)
 theme_override_font_sizes/font_size = 80
-text = "by markeryjane"
+text = "by Mario Russeau"
 horizontal_alignment = 1

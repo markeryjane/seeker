@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://f28lgpoq2hdn"]
+[gd_scene load_steps=12 format=3 uid="uid://f28lgpoq2hdn"]
 
 [ext_resource type="Script" path="res://base_card.gd" id="1_envtt"]
 [ext_resource type="FontVariation" uid="uid://xindnjsr4tie" path="res://fonts/jupiteroid_font.tres" id="2_8n5eh"]
@@ -79,6 +79,20 @@ _data = {
 "RESET": SubResource("Animation_rmjyp"),
 "hover": SubResource("Animation_16mgd")
 }
+
+[sub_resource type="GDScript" id="GDScript_qndkr"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="BaseCard" type="Node2D"]
 script = ExtResource("1_envtt")
@@ -223,3 +237,4 @@ libraries = {
 }
 
 [node name="Node2D" parent="." instance=ExtResource("4_wfteq")]
+script = SubResource("GDScript_qndkr")

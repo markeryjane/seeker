@@ -1,21 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://qkf0swbtalhw"]
+[gd_scene load_steps=3 format=3 uid="uid://qkf0swbtalhw"]
 
-[ext_resource type="Texture2D" uid="uid://dylfu8sbqbrxi" path="res://sprites/flowerparticle.png" id="1_34ek7"]
+[ext_resource type="Texture2D" uid="uid://c34y2msla7eqb" path="res://sprites/flowerparticle2.png" id="1_xrtol"]
+
+[sub_resource type="GDScript" id="GDScript_mc4h1"]
+script/source = "extends Node2D
+
+var type = 0
+var month_colors = [\"#0091de\", \"#ff8ec0\", \"#ff7a69\", \"#61f2ce\", \"#f5d67d\", \"#ff0a37\", \"#3284ff\", \"#a88246\", \"#7d4f4e\", \"#d06900\", \"#b63900\", \"#2a4fff\"]
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	$CPUParticles2D.emitting = true
+	print(type)
+	modulate = month_colors[type-1]
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="Node2D" type="Node2D"]
+script = SubResource("GDScript_mc4h1")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 30
+amount = 33
+lifetime = 0.6
 one_shot = true
-texture = ExtResource("1_34ek7")
+texture = ExtResource("1_xrtol")
 direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 141.37
-initial_velocity_max = 359.64
+initial_velocity_max = 527.15
 angular_velocity_max = 628.63
 angle_min = -720.0
 angle_max = 720.0
 scale_amount_min = 5.0
 scale_amount_max = 5.0
+hue_variation_max = 1.0
