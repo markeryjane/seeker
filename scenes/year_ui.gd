@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		if months_played[_index]:
 			label.modulate =Color.html(month_colors[_index])
 		else:
-			label.modulate = Color.DIM_GRAY
+			label.modulate = Color.html("#ffffff14")
 		_index += 1
 
 func activate_month(month:int) -> void:
