@@ -30,6 +30,7 @@ var hand = []
 @onready var score_tick_sfx: AudioStreamPlayer = %ScoreTickSfx
 @onready var pressed_play_or_discard_sfx: AudioStreamPlayer = %PressedPlayOrDiscardSfx
 @onready var extra_turn_sfx: AudioStreamPlayer = %ExtraTurnSfx
+@onready var discard_sfx_another: AudioStreamPlayer = %DiscardSfxAnother
 
 @onready var play_hand_3: AudioStreamPlayer = %PlayHand3
 @onready var play_hand_4: AudioStreamPlayer = %PlayHand4
@@ -40,6 +41,7 @@ var hand = []
 @onready var alien: Node2D = %alien
 @onready var rat: Node2D = %rat
 @onready var bear: Node2D = %bear
+@onready var paper_sfx: AudioStreamPlayer = %PaperSfx
 
 
 var selection_index = 0
@@ -316,6 +318,7 @@ func play_hand():
 		
 	character_jump_animator.play("jump")
 	pressed_play_or_discard_sfx.play()
+	paper_sfx.play()
 	match scoring_numbers.size():
 		3:
 			play_hand_3.play()
@@ -389,6 +392,7 @@ func discard():
 	
 	pressed_play_or_discard_sfx.play()
 	discard_sfx.play()
+	discard_sfx_another.play()
 
 func calculate_score():
 	var _points_to_add = 0

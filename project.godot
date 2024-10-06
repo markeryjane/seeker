@@ -25,6 +25,7 @@ SignalBus="*res://signal_bus.gd"
 
 window/size/viewport_width=2000
 window/size/viewport_height=1200
+window/size/always_on_top=true
 window/stretch/mode="viewport"
 
 [gui]

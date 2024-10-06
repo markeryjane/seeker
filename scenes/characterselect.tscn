@@ -52,6 +52,18 @@ theme_override_font_sizes/font_size = 130
 text = "Choose a keeper"
 horizontal_alignment = 1
 
+[node name="CenterContainer3" type="CenterContainer" parent="."]
+offset_top = 123.0
+offset_right = 1989.0
+offset_bottom = 535.0
+
+[node name="PlayLabel" type="Label" parent="CenterContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.364706)
+theme_override_font_sizes/font_size = 80
+text = "Use arrow keys and space"
+horizontal_alignment = 1
+
 [node name="Marker" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(694, 667)

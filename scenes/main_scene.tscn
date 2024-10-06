@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://hwsl16lji7g8"]
+[gd_scene load_steps=31 format=3 uid="uid://hwsl16lji7g8"]
 
 [ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_m7ixl"]
 [ext_resource type="PackedScene" uid="uid://c0777y0wu7oa" path="res://scenes/year_ui.tscn" id="2_xjgos"]
@@ -15,13 +15,15 @@
 [ext_resource type="AudioStream" uid="uid://b2mubfvbv4qlt" path="res://sfx/pluck_six.wav" id="13_c5h42"]
 [ext_resource type="AudioStream" uid="uid://chslmfamy1ou6" path="res://sfx/pluck_seven.wav" id="14_kgdue"]
 [ext_resource type="AudioStream" uid="uid://bt15jh6trd4xb" path="res://sfx/tempori_short_no_fx.ogg" id="15_ti2kx"]
-[ext_resource type="AudioStream" uid="uid://twe74y8d7jcw" path="res://sfx/low_dop_sfx.wav" id="16_g2bl0"]
+[ext_resource type="AudioStream" uid="uid://dhpoyovjrycc6" path="res://sfx/low_dop_new2.wav" id="16_sx4mp"]
 [ext_resource type="PackedScene" uid="uid://wwfh1fn78wwy" path="res://tutorial.tscn" id="17_nw0oi"]
 [ext_resource type="AudioStream" uid="uid://iax7gvbcml5d" path="res://sfx/extra_turn_sfx.wav" id="18_mar6m"]
 [ext_resource type="PackedScene" uid="uid://tqwjmeil781v" path="res://scenes/charafter1.tscn" id="19_oshqn"]
 [ext_resource type="PackedScene" uid="uid://cfwx3ur281jtl" path="res://scenes/rat.tscn" id="20_tftay"]
 [ext_resource type="PackedScene" uid="uid://y24iny3awuk5" path="res://scenes/bear.tscn" id="21_7s1mw"]
 [ext_resource type="AudioStream" uid="uid://dgnlnvlw4ylbm" path="res://sfx/chirp_high_sfx.wav" id="22_tsso5"]
+[ext_resource type="AudioStream" uid="uid://bmh11etltjn0o" path="res://sfx/paper_sfx.wav" id="23_iesw5"]
+[ext_resource type="AudioStream" uid="uid://bdsd071vkol3n" path="res://sfx/discard_sfx.wav" id="24_tntqh"]
 
 [sub_resource type="Animation" id="Animation_8s8fh"]
 length = 0.001
@@ -59,6 +61,21 @@ _data = {
 "animate_combo_display": SubResource("Animation_257vy")
 }
 
+[sub_resource type="Animation" id="Animation_c013a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(262, 668)]
+}
+
 [sub_resource type="Animation" id="Animation_xwld0"]
 resource_name = "jump"
 tracks/0/type = "value"
@@ -88,21 +105,6 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.266667)
 }
 tracks/1/use_blend = true
-
-[sub_resource type="Animation" id="Animation_c013a"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(262, 668)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bjh8y"]
 _data = {
@@ -302,9 +304,8 @@ pitch_scale = 0.9
 
 [node name="PressedPlayOrDiscardSfx" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("16_g2bl0")
+stream = ExtResource("16_sx4mp")
 volume_db = 8.0
-pitch_scale = 0.22
 
 [node name="Tutorial" parent="." instance=ExtResource("17_nw0oi")]
 unique_name_in_owner = true
@@ -340,3 +341,14 @@ libraries = {
 
 [node name="Jumpsound" type="AudioStreamPlayer" parent="CharacterHolder"]
 pitch_scale = 2.4
+
+[node name="PaperSfx" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("23_iesw5")
+volume_db = 5.176
+pitch_scale = 1.34
+
+[node name="DiscardSfxAnother" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("24_tntqh")
+volume_db = -5.647
