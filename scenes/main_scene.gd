@@ -18,6 +18,13 @@ var hand = []
 @onready var turns_left_container: CenterContainer = %TurnsLeftContainer
 @onready var turns_left_value_label: Label = %TurnsLeftValueLabel
 
+@onready var move_cursor_sfx: AudioStreamPlayer = %MoveCursorSfx
+@onready var select_card_sfx: AudioStreamPlayer = %SelectCardSfx
+@onready var deselect_card_sfx: AudioStreamPlayer = %DeselectCardSfx
+@onready var invalid_hand_sfx: AudioStreamPlayer = %InvalidHandSfx
+@onready var play_hand_sfx: AudioStreamPlayer = %PlayHandSfx
+
+
 var selection_index = 0
 
 var horizontal_selection_index = 1
@@ -126,10 +133,12 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_left"):
 			selection_index = max(0, selection_index-1)
 			pop_up_selected_card()
+			move_cursor_sfx.play()
 			
 		if Input.is_action_just_pressed("ui_right"):
 			selection_index = min(hand.size()-1, selection_index+1)
 			pop_up_selected_card()
+			move_cursor_sfx.play()
 		
 		if Input.is_action_just_pressed("ui_accept"):
 			select_card()
@@ -155,9 +164,11 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ui_up"):
 		horizontal_selection_index = max(0, horizontal_selection_index-1)
+		move_cursor_sfx.play()
 	
 	if Input.is_action_just_pressed("ui_down"):
 		horizontal_selection_index = min(2, horizontal_selection_index+1)
+		move_cursor_sfx.play()
 	
 	#if horizontal_selection_index == 1:
 		#pop_up_selected_card()
@@ -181,6 +192,11 @@ func _process(delta: float) -> void:
 
 func select_card():
 	hand[selection_index].selected = !hand[selection_index].selected
+	
+	if hand[selection_index].selected:
+		select_card_sfx.play()
+	else:
+		deselect_card_sfx.play()
 
 func is_valid_hand() -> bool:
 	var _selected_count = 0
@@ -206,6 +222,7 @@ func play_hand():
 			scoring_numbers.append(card.month)
 			
 	if !is_valid_hand():
+		invalid_hand_sfx.play()
 		scoring_numbers.clear()
 		return
 	
@@ -227,6 +244,7 @@ func play_hand():
 	reposition_cards_in_hand()
 	spend_turn()
 	scoring_numbers.clear()
+	play_hand_sfx.play()
 
 func discard():
 	var _num_selected = 0
@@ -234,6 +252,7 @@ func discard():
 		if card.selected:
 			_num_selected += 1
 	if _num_selected == 0:
+		invalid_hand_sfx.play()
 		return
 	
 	for i in 200: #idk why but this works
