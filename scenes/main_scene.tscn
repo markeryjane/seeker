@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bedocjv42ihou" path="res://sfx/new_cursor_sfx.wav" id="3_xer0e"]
 [ext_resource type="AudioStream" uid="uid://cvkywsnguri0r" path="res://sfx/tluk_sfx.wav" id="5_hopdu"]
 [ext_resource type="AudioStream" uid="uid://hpvjmxx57t2t" path="res://sfx/pon_sfx.wav" id="5_otrbl"]
-[ext_resource type="AudioStream" uid="uid://32aail1it6k3" path="res://sfx/glik_sfx.wav" id="6_qeps2"]
+[ext_resource type="AudioStream" uid="uid://c457nuyleoj4" path="res://sfx/new_invalid_hand_sfx.wav" id="6_0aq2l"]
 [ext_resource type="AudioStream" uid="uid://db3iatr6u232" path="res://sfx/pluck_sfx.wav" id="7_gep5o"]
 [ext_resource type="AudioStream" uid="uid://dx8t1qyji507p" path="res://sfx/squeak_sfx.wav" id="8_6y13g"]
 [ext_resource type="AudioStream" uid="uid://bdip6uleqr1sl" path="res://sfx/pop_sfx.wav" id="9_ns06p"]
@@ -200,8 +200,7 @@ stream = ExtResource("5_otrbl")
 
 [node name="InvalidHandSfx" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("6_qeps2")
-pitch_scale = 0.1
+stream = ExtResource("6_0aq2l")
 
 [node name="PlayHandSfx" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
