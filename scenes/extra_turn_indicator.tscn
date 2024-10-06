@@ -54,6 +54,7 @@ offset_bottom = 38.0
 [node name="ScoreText" type="Label" parent="TextNode/CenterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0.975326, 0, 0.441691, 1)
 theme_override_font_sizes/font_size = 75
 text = "extra turn!
 "

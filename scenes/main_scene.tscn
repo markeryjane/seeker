@@ -66,13 +66,13 @@ unique_name_in_owner = true
 position = Vector2(756, 178)
 
 [node name="PlayDiscardCenterContainer" type="CenterContainer" parent="."]
-offset_top = 555.0
+offset_top = 586.0
 offset_right = 2003.0
-offset_bottom = 1197.0
+offset_bottom = 1228.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PlayDiscardCenterContainer"]
 layout_mode = 2
-theme_override_constants/separation = 350
+theme_override_constants/separation = 220
 
 [node name="PlayLabel" type="Label" parent="PlayDiscardCenterContainer/VBoxContainer"]
 unique_name_in_owner = true

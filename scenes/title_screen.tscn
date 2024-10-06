@@ -11,14 +11,13 @@ script = ExtResource("1_tboce")
 layout_mode = 0
 offset_right = 2008.0
 offset_bottom = 1202.0
-color = Color(0.319642, 0.316852, 0.231474, 1)
+color = Color(0.514217, 0.162162, 0.303138, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
-offset_left = -6.0
-offset_top = 131.0
-offset_right = 1994.0
-offset_bottom = 1200.0
+offset_top = 43.0
+offset_right = 2000.0
+offset_bottom = 1112.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2

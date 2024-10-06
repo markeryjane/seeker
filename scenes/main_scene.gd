@@ -309,7 +309,7 @@ func calculate_score():
 				turns_left += card.effect_amount + 1 #give an extra cos we're using a turn
 				
 				var _inst = EXTRA_TURN_INDICATOR.instantiate()
-				_inst.position = Vector2(1000,760)
+				_inst.position = Vector2(990,655)
 				add_child(_inst)
 			year_ui.activate_month(card.month)
 			

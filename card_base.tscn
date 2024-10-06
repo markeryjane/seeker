@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://f28lgpoq2hdn"]
+[gd_scene load_steps=10 format=3 uid="uid://f28lgpoq2hdn"]
 
 [ext_resource type="Script" path="res://base_card.gd" id="1_envtt"]
 [ext_resource type="FontVariation" uid="uid://xindnjsr4tie" path="res://fonts/jupiteroid_font.tres" id="2_8n5eh"]
+[ext_resource type="Script" path="res://selected_icon.gd" id="3_jt4sv"]
 
 [sub_resource type="Animation" id="Animation_gw7wm"]
 length = 0.001
@@ -38,6 +39,44 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_gw7wm"),
 "pop_up": SubResource("Animation_6e6m7")
+}
+
+[sub_resource type="Animation" id="Animation_16mgd"]
+resource_name = "hover"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.26667, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rmjyp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_572q1"]
+_data = {
+"RESET": SubResource("Animation_rmjyp"),
+"hover": SubResource("Animation_16mgd")
 }
 
 [node name="BaseCard" type="Node2D"]
@@ -166,8 +205,17 @@ libraries = {
 
 [node name="SelectedIcon" type="Node2D" parent="."]
 unique_name_in_owner = true
+script = ExtResource("3_jt4sv")
+
+[node name="Polygon2D" type="Polygon2D" parent="SelectedIcon"]
+polygon = PackedVector2Array(96, -107, 80, -102, 68, -91, 63, -73, 66, -47, 80, -27, 94, -14, 109, -9, 143, -15, 157, -22, 166, -30, 176, -43, 178, -56, 176, -75, 172, -98, 164, -107, 144, -109, 118, -108)
 
 [node name="SelectedIconPolygon" type="Polygon2D" parent="SelectedIcon"]
-position = Vector2(7, -26)
-color = Color(0.159892, 0.688903, 0.308131, 1)
+position = Vector2(102, 56)
+color = Color(1.63645e-06, 0.677877, 0.534922, 1)
 polygon = PackedVector2Array(-29, -115, 13, -77, 63, -145, 44, -150, 11, -107, -16, -129)
+
+[node name="SelectedAnimationPlayer" type="AnimationPlayer" parent="SelectedIcon"]
+libraries = {
+"": SubResource("AnimationLibrary_572q1")
+}
