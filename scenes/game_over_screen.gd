@@ -72,8 +72,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and can_restart:
-		SceneTransition.goToScene(load("res://scenes/main_scene.tscn"))
-	
+		SceneTransition.goToScene(load("res://scenes/characterselect.tscn"))	
 	if score_text.text != str(final_score):
 		score_text.text = str(final_score)
 		score_tick_sfx.play()

@@ -5,6 +5,8 @@ extends Node2D
 @onready var char_1: Node2D = %char1
 @onready var marker: Node2D = %Marker
 @onready var description_text: Label = %DescriptionText
+@onready var move_cursor_sfx: AudioStreamPlayer = %MoveCursorSfx
+@onready var select_sfx: AudioStreamPlayer = %SelectSfx
 
 var selected = 0
 
@@ -17,8 +19,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_right"):
 		selected += 1
+		move_cursor_sfx.play()
 	if Input.is_action_just_pressed("ui_left"):
 		selected -= 1
+		move_cursor_sfx.play()
 	
 	if selected > 2:
 		selected = 0
@@ -36,5 +40,6 @@ func _process(delta: float) -> void:
 		description_text.text = "Start with 7 turns"
 	
 	if Input.is_action_just_pressed("ui_accept"):
+		select_sfx.play()
 		SignalBus.character_selected = selected
 		SceneTransition.goToScene(preload("res://scenes/main_scene.tscn"))

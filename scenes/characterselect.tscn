@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dj7kwj60i6o58"]
+[gd_scene load_steps=7 format=3 uid="uid://dj7kwj60i6o58"]
 
 [ext_resource type="PackedScene" uid="uid://tqwjmeil781v" path="res://scenes/charafter1.tscn" id="1_cinrh"]
 [ext_resource type="Script" path="res://scenes/characterselect.gd" id="1_s2u3j"]
 [ext_resource type="PackedScene" uid="uid://cfwx3ur281jtl" path="res://scenes/rat.tscn" id="2_xwbxs"]
 [ext_resource type="PackedScene" uid="uid://y24iny3awuk5" path="res://scenes/bear.tscn" id="3_ifga2"]
+[ext_resource type="AudioStream" uid="uid://c56ixujn8v145" path="res://sfx/blut_sfx.wav" id="5_hoi8p"]
+[ext_resource type="AudioStream" uid="uid://c1b4nbywpb003" path="res://sfx/prup_sfx.wav" id="6_pd2r5"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_s2u3j")
@@ -70,3 +72,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 90
 text = "Start with 7 cards"
 horizontal_alignment = 1
+
+[node name="MoveCursorSfx" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_hoi8p")
+
+[node name="SelectSfx" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_pd2r5")

@@ -1,8 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjkeqilxu2pxa"]
+[gd_scene load_steps=9 format=3 uid="uid://cjkeqilxu2pxa"]
 
 [ext_resource type="Script" path="res://scenes/title_screen.gd" id="1_tboce"]
 [ext_resource type="PackedScene" uid="uid://cwpxr3piibnx2" path="res://mandala.tscn" id="2_5b5co"]
 [ext_resource type="AudioStream" uid="uid://dgqukujy2f07y" path="res://sfx/title_bgm.ogg" id="3_hohqv"]
+[ext_resource type="Script" path="res://scenes/center_container.gd" id="3_sjbxr"]
+[ext_resource type="AudioStream" uid="uid://bex4igj5tqtr3" path="res://sfx/bonk2_sfx.wav" id="4_n1f5a"]
+
+[sub_resource type="Animation" id="Animation_n4w5i"]
+resource_name = "title"
+length = 0.5
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_u343w"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7jpy8"]
+_data = {
+"RESET": SubResource("Animation_u343w"),
+"title": SubResource("Animation_n4w5i")
+}
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -34,9 +50,10 @@ speed = -0.25
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
-offset_top = 43.0
-offset_right = 2000.0
-offset_bottom = 1112.0
+offset_left = -2000.0
+offset_top = -59.673
+offset_bottom = 1009.33
+script = ExtResource("3_sjbxr")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
@@ -63,9 +80,17 @@ theme_override_font_sizes/font_size = 80
 text = "by Mario Russeau"
 horizontal_alignment = 1
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_7jpy8")
+}
+
 [node name="TitleBGM" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_hohqv")
+volume_db = -80.0
 autoplay = true
 
 [node name="StartGameSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_n1f5a")
