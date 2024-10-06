@@ -1,0 +1,21 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://b8nb4jnxi22f7"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_8tctr"]
+resource_name = "Reverb"
+room_size = 0.08
+spread = 0.43
+wet = 0.01
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_geicn"]
+resource_name = "Compressor"
+threshold = -18.7
+ratio = 17.6
+gain = 20.0
+release_ms = 800.0
+mix = 0.53
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectReverb_8tctr")
+bus/0/effect/0/enabled = true
+bus/0/effect/1/effect = SubResource("AudioEffectCompressor_geicn")
+bus/0/effect/1/enabled = true

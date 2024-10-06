@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_m7ixl"]
 [ext_resource type="PackedScene" uid="uid://c0777y0wu7oa" path="res://scenes/year_ui.tscn" id="2_xjgos"]
-[ext_resource type="AudioStream" uid="uid://d0g4u25mdrm8q" path="res://sfx/gip_sfx.wav" id="3_j1ty4"]
+[ext_resource type="AudioStream" uid="uid://bedocjv42ihou" path="res://sfx/new_cursor_sfx.wav" id="3_xer0e"]
 [ext_resource type="AudioStream" uid="uid://cvkywsnguri0r" path="res://sfx/tluk_sfx.wav" id="5_hopdu"]
 [ext_resource type="AudioStream" uid="uid://hpvjmxx57t2t" path="res://sfx/pon_sfx.wav" id="5_otrbl"]
 [ext_resource type="AudioStream" uid="uid://32aail1it6k3" path="res://sfx/glik_sfx.wav" id="6_qeps2"]
@@ -187,7 +187,8 @@ text = " turns left"
 
 [node name="MoveCursorSfx" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("3_j1ty4")
+stream = ExtResource("3_xer0e")
+volume_db = -2.0
 
 [node name="SelectCardSfx" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
