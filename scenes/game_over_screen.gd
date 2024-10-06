@@ -56,7 +56,7 @@ func _ready() -> void:
 	var final_score_to_show = final_score
 	final_score = 0
 	
-	await get_tree().create_timer(.6).timeout
+	await get_tree().create_timer(.9).timeout
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "final_score", final_score_to_show, .4)
