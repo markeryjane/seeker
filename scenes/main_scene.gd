@@ -23,6 +23,7 @@ var hand = []
 @onready var deselect_card_sfx: AudioStreamPlayer = %DeselectCardSfx
 @onready var invalid_hand_sfx: AudioStreamPlayer = %InvalidHandSfx
 @onready var play_hand_sfx: AudioStreamPlayer = %PlayHandSfx
+@onready var discard_sfx: AudioStreamPlayer = %DiscardSfx
 
 
 var selection_index = 0
@@ -266,6 +267,8 @@ func discard():
 	
 	reposition_cards_in_hand()
 	spend_turn()
+	
+	discard_sfx.play()
 
 func calculate_score():
 	var _points_to_add = 0

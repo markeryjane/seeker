@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://hwsl16lji7g8"]
+[gd_scene load_steps=12 format=3 uid="uid://hwsl16lji7g8"]
 
 [ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_m7ixl"]
 [ext_resource type="PackedScene" uid="uid://c0777y0wu7oa" path="res://scenes/year_ui.tscn" id="2_xjgos"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://hpvjmxx57t2t" path="res://sfx/pon_sfx.wav" id="5_otrbl"]
 [ext_resource type="AudioStream" uid="uid://32aail1it6k3" path="res://sfx/glik_sfx.wav" id="6_qeps2"]
 [ext_resource type="AudioStream" uid="uid://db3iatr6u232" path="res://sfx/pluck_sfx.wav" id="7_gep5o"]
+[ext_resource type="AudioStream" uid="uid://dx8t1qyji507p" path="res://sfx/squeak_sfx.wav" id="8_6y13g"]
 
 [sub_resource type="Animation" id="Animation_8s8fh"]
 length = 0.001
@@ -131,7 +132,7 @@ libraries = {
 
 [node name="ScoreCenterContainer" type="CenterContainer" parent="."]
 offset_top = 160.0
-offset_right = 1995.0
+offset_right = 2000.0
 offset_bottom = 368.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScoreCenterContainer"]
@@ -197,3 +198,7 @@ pitch_scale = 0.1
 [node name="PlayHandSfx" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("7_gep5o")
+
+[node name="DiscardSfx" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_6y13g")

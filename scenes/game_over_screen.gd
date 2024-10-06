@@ -16,6 +16,8 @@ var gameover_year_bonus_active = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$GameOverSfx.play()
+	
 	var bonus_multiplier = 0
 	
 	if gameover_spring_bonus_active:

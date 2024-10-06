@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqr5kkyshfci1"]
+[gd_scene load_steps=3 format=3 uid="uid://dqr5kkyshfci1"]
 
 [ext_resource type="Script" path="res://scenes/game_over_screen.gd" id="1_8qjxw"]
+[ext_resource type="AudioStream" uid="uid://fiho0msdg58v" path="res://sfx/bududuh_sfx.wav" id="2_kee6j"]
 
 [node name="GameOverScreen" type="Node2D"]
 script = ExtResource("1_8qjxw")
@@ -19,9 +20,9 @@ offset_bottom = 744.0
 color = Color(0.00119745, 0.00119745, 0.00119745, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-offset_left = -11.0
+offset_left = -1.0
 offset_top = 71.0
-offset_right = 2049.0
+offset_right = 1999.0
 offset_bottom = 1418.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
@@ -90,3 +91,6 @@ text = "
 Press Space to restart
 "
 horizontal_alignment = 1
+
+[node name="GameOverSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kee6j")
